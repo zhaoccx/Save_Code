@@ -7,5 +7,12 @@ package com.reflect.cc;
  *
  */
 public interface Subject {
+	/**
+	 * ok
+	 * 
+	 * @param name
+	 * @param age
+	 * @return
+	 */
 	public String say(String name, int age);
 }
