@@ -7,6 +7,6 @@ public class Msn {
 	}
 	
 	public void SEDS(){
-		
+		System.out.println("ss");
 	}
 }
