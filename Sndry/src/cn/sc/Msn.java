@@ -5,4 +5,8 @@ public class Msn {
 	public void Sed(){
 		
 	}
+	
+	public void SEDS(){
+		
+	}
 }
