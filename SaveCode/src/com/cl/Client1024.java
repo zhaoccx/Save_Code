@@ -31,6 +31,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class Client1024 {
 
 	public static void main(String[] args) throws Exception {
@@ -48,9 +49,9 @@ public class Client1024 {
 		regis(list1);
 
 		// 注掉下述3行即技术区逐个帖子扫
-		if (1 == 1) {
-			System.exit(0);
-		}
+		// if (1 == 1) {
+		// System.exit(0);
+		// }
 
 		// 获取所有url
 		Set<String> urlSet = queryUrls();
@@ -262,7 +263,6 @@ public class Client1024 {
 				}
 			} else if (str.indexOf("#") == -1 && str.indexOf("@") == -1 && str.indexOf(" ") >= 0) { // 既不存在#也不存@,使用排列组合
 				String strings[] = str.split("\\s");
-				int l = strings.length;
 				pai(strings, 0, strings.length, list);
 			} else if (str.matches("[u4e00-u9fa5]")) { // 明码
 				list.add(str);
