@@ -1,11 +1,21 @@
 package com.cl;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
-import java.util.regex.Pattern; 
+import java.util.regex.Pattern;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -18,7 +28,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.params.ClientPNames;
 import org.apache.http.client.params.CookiePolicy;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
@@ -103,7 +112,7 @@ public class Client1024 {
 	 *
 	 */
 
-	static HttpClient httpClient = new DefaultHttpClient(new ThreadSafeClientConnManager());
+	static HttpClient httpClient = new DefaultHttpClient();
 	static HttpPost httpPost = new HttpPost("http://cl.arlew.com/register.php");
 	static HttpGet urlHttpGet = new HttpGet("http://cl.arlew.com/thread0806.php?fid=7&search=1");
 	static Set codeSet = new HashSet();
@@ -210,7 +219,7 @@ public class Client1024 {
 		List list = new ArrayList();
 
 		for (int i = 0; i < strs.length; i++) {
-			String str = strs;
+			String str = strs[i];
 
 			if (str.indexOf("#") >= 0 && str.indexOf("#") == str.lastIndexOf("#") && str.indexOf("@") == -1) { // 只存在一个#并且不存在@
 
@@ -284,7 +293,7 @@ public class Client1024 {
 
 		String temp = str[0];
 		for (int i = 0; i < m; i++) {
-			str = str[i + 1];
+			str[i] = str[i + 1];
 		}
 		str[m] = temp;
 	}
