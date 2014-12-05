@@ -30,6 +30,7 @@ public class ReflectgetAllMethed implements Serializable {
 			System.out.print(returnType.getName() + "  ");
 			System.out.print(method[i].getName() + " ");
 			System.out.print("(");
+
 			for (int j = 0; j < para.length; ++j) {
 				System.out.print(para[j].getName() + " " + "arg" + j);
 				if (j < para.length - 1) {
