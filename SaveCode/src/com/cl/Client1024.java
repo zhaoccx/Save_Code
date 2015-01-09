@@ -44,9 +44,9 @@ public class Client1024 {
 
 		// 一次性验证某邀请码
 		// 处理邀请码
-		List<String> list1 = createInvcode("0529eb#9a#6a342e");
+		// List<String> list1 = createInvcode("0529eb#9a#6a342e");
 		// 注册账号
-		regis(list1);
+		// regis(list1);
 
 		// 注掉下述3行即技术区逐个帖子扫
 		// if (1 == 1) {
@@ -64,7 +64,7 @@ public class Client1024 {
 					continue;
 				}
 				witerAddress(str);
-				contentHttpGet.setURI(new URI("http://cl.arlew.com/" + str));
+				contentHttpGet.setURI(new URI("http://cl.org.ru/" + str));
 				HttpResponse httpResponse = null;
 				try {
 					httpResponse = httpClient.execute(contentHttpGet);
@@ -72,12 +72,10 @@ public class Client1024 {
 					Thread.sleep(1000 * 60);
 					httpResponse = httpClient.execute(contentHttpGet);
 				}
-				System.out.println("connection-->http://cl.arlew.com/" + str);
+				System.out.println("connection-->http://cl.org.ru/" + str);
 				HttpEntity entity = httpResponse.getEntity();
-				// String source = new
-				// String(EntityUtils.toString(entity).getBytes("iso-8859-1"),
-				// "gbk");
-				String source = "";
+				String source = new String(EntityUtils.toString(entity).getBytes("iso-8859-1"), "gbk");
+				// String source = "";
 				try {
 					Thread.sleep(500);
 					source = EntityUtils.toString(entity);
@@ -114,8 +112,8 @@ public class Client1024 {
 	 */
 
 	static HttpClient httpClient = new DefaultHttpClient();
-	static HttpPost httpPost = new HttpPost("http://cl.arlew.com/register.php");
-	static HttpGet urlHttpGet = new HttpGet("http://cl.arlew.com/thread0806.php?fid=7&search=1");
+	static HttpPost httpPost = new HttpPost("http://cl.org.ru/register.php");
+	static HttpGet urlHttpGet = new HttpGet("http://cl.org.ru/thread0806.php?fid=7&search=1");
 	static Set codeSet = new HashSet();
 	static Set urlsSet = new HashSet();
 	static FileOutputStream fout = null;
@@ -150,9 +148,7 @@ public class Client1024 {
 		Set set = new HashSet();
 		HttpResponse httpResponse = httpClient.execute(urlHttpGet);
 		HttpEntity entity = httpResponse.getEntity();
-		// String source = new
-		// String(EntityUtils.toString(entity).getBytes("iso-8859-1"), "gbk");
-		String source = "";
+		String source = new String(EntityUtils.toString(entity).getBytes("iso-8859-1"), "gbk");
 		Thread.sleep(1000);
 		try {
 			source = EntityUtils.toString(entity);
@@ -193,10 +189,10 @@ public class Client1024 {
 
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 
-		nvps.add(new BasicNameValuePair("regname", "这里写你的用户名"));
-		nvps.add(new BasicNameValuePair("regpwd", "这里写密码"));
-		nvps.add(new BasicNameValuePair("regpwdrepeat", "这里写密码"));
-		nvps.add(new BasicNameValuePair("regemail", "这里写邮箱"));
+		nvps.add(new BasicNameValuePair("regname", "天地一号"));
+		nvps.add(new BasicNameValuePair("regpwd", "zhao5487102"));
+		nvps.add(new BasicNameValuePair("regpwdrepeat", "zhao5487102"));
+		nvps.add(new BasicNameValuePair("regemail", "zcc102@163.com"));
 		nvps.add(new BasicNameValuePair("invcode", invcode)); // 邀请码
 		nvps.add(new BasicNameValuePair("forward", "")); // 不变
 		nvps.add(new BasicNameValuePair("step", "2")); // 不变
