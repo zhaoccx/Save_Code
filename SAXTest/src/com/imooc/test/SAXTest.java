@@ -21,8 +21,8 @@ public class SAXTest {
 			SAXParser parser = factory.newSAXParser();
 			SAXParserHandler handler = new SAXParserHandler();
 			parser.parse("books.xml", handler);
-			System.out.println("~��~��~������" + handler.getBookList().size()
-					+ "����");
+			System.out.println("?" + handler.getBookList().size()
+					+ "wdkjdmmdd");
 			for (Book book : handler.getBookList()) {
 				System.out.println(book.getId());
 				System.out.println(book.getName());
