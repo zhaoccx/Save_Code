@@ -46,7 +46,5 @@ public class DOM4JTest {
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
