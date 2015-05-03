@@ -1,0 +1,30 @@
+<script language="JavaScript">  <!--
+/*本程序为JavaScript的String对象添加一个新的方法:
+  trim - 去掉字串开始和结束的空字符，同时也将连续的空字符用一个空字符替换
+*/
+
+function trim(){
+   var retValue = this;
+   var ch = retValue.substring(0, 1);
+   while (ch == " ") { // 检查第一个字符是否为空字符
+      retValue = retValue.substring(1, retValue.length);
+      ch = retValue.substring(0, 1);
+   }
+   ch = retValue.substring(retValue.length-1, retValue.length);
+   while (ch == " ") { // 检查最后一个字符是否为空字符
+      retValue = retValue.substring(0, retValue.length-1);
+      ch = retValue.substring(retValue.length-1, retValue.length);
+   }
+   while (retValue.indexOf("  ") != -1) { // 检查是否有两个连续的空字符
+      retValue = retValue.substring(0, retValue.indexOf("  ")) + retValue.substring(retValue.indexOf("  ")+1, retValue.length); 
+   }
+   return retValue; // 返回处理后的字串
+}
+
+//  将自定义的方法附到String对象
+String.prototype.trim=trim
+
+//  使用自定义的方法
+var aString = " This   is a new book.  "
+document.write("＝＝＝"+aString.trim()+"＝＝＝");
+//-->  </script>

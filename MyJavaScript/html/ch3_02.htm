@@ -1,0 +1,20 @@
+<script language="JavaScript">  <!--
+  var person = new Object();    //新建一个联合数组
+  person["name"] = "John";      //为联合数组赋值
+  person["phone"] = "4031234";
+  person["fax"] = "4035678";
+  person["email"] = "abc@def.com";
+
+  // theItem变量存储的是person中的属性名
+  // 从person[theItem]中可以得到各属性值
+  for (theItem in person) {    
+    document.write(theItem + " is " + person[theItem] +"<br>");
+  }
+
+  // 测试person中是否有属性"age"
+  if (typeof person["age"] == "undefined") {
+    document.write ('No property "age"');
+  }
+
+//-->  
+</script>

@@ -1,0 +1,47 @@
+<html>
+<head>
+  <script language="javascript" src="js/util.js"></script>
+  <script language="JavaScript"><!--
+    var errMsg = "";  // 全局变量，用于存放出错信息
+    function validate() {
+      if (isEmptyString(getObj("username").value)) 
+        errMsg += '请输入"用户名".\n';
+      if (isEmptyString(getObj("password").value)) 
+        errMsg += '请输入"密码".\n';
+      if (!isValidString(getObj("username").value)) 
+        errMsg += '无效的"用户名" \n';
+      if (getObj("username").value!="" && !isMinString(getObj("username").value,6)) 
+        errMsg += '"用户名"长度应大于6个字符 \n';
+      if (getObj("password").value!="" && !isMinString(getObj("password").value,6)) 
+errMsg += '"密码"长度应大于6个字符';
+      // 如果全局变量不是空，报出错信息
+      if (errMsg!="") {
+        alert(errMsg);
+        errMsg = "";
+        return false;
+      }
+    }
+    function doSubmit() {
+      if (validate()) getObj("mainForm").submit;
+    }
+  //--></script>
+</head>
+<body>
+<form id="mainForm" method="post">
+  <table>
+    <tr>
+      <td>用户名</td>
+      <td><input type="text" name="username" id="username"></td>
+    </tr>
+    <tr>
+      <td>密码</td>
+      <td><input type="password" name="password" id="password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="right"><input type="button" value="提交" onclick="doSubmit();"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+<head>
+<script language = "JavaScript" >
+<!--
+  function sum() {
+    var ret = 0;　 // ret为输入参数的总和
+  	for (var i=0; i<arguments.length; i++) {
+  		ret += arguments[i];
+  	}
+  	return ret;
+  }
+  function average() {
+    var ret = 0;　 // ret为输入参数的平均数
+  	for (var i=0; i<arguments.length; i++) {
+  		ret += arguments[i];
+  	}
+  	return ret/arguments.length;
+  }
+  function level(score) {
+  	var ret = "";　// ret为需要返回的分数级别
+  	if (score>=90) 
+  	  ret = "A";
+  	else if (score>=80)
+  	  ret = "B";
+  	else if (score>=70)
+  	  ret = "C";
+		else
+  	  ret = "不合格";
+  	
+  	return ret;
+  }
+  function msg(level) {
+    var ret = "";　// ret为需要返回的信息
+    switch (level) {
+      case ("A"):
+        ret = "祝贺你取得了好成绩";
+        break;
+      case ("B"):
+        ret = "成绩不错，继续加油";
+        break;
+      default:
+        ret = "必须加油啊";
+    }
+    return ret;
+  }
+  function student(name,math,chinese,english,science,gym) {
+    this.name = name;
+    this.math = math;
+    this.chinese = chinese;
+    this.english = english;
+    this.science = science;
+    this.gym = gym;
+    this.sum = sum;
+    this.ave = average;
+    this.level = level;
+    this.msg = msg;
+    this.toString = function toString(){
+      var s = this.name + ":\n";
+      var theSum = this.sum(this.math,this.chinese,this.english,this.science,this.gym);
+      var theAve = this.ave(this.math,this.chinese,this.english,this.science,this.gym);
+      var theLevel = this.level(theAve);
+      s += "你的总成绩是 "　+ theSum + "\n";
+      s += "你的平均成绩是 "　+ theAve + "\n";
+      s += "你的平均成绩级别是 "　+ theLevel + "\n";
+      s += "\n" +this.msg(theLevel); 
+      return s;
+    }
+  }
+//-->
+</script>
+</head>
+<body>
+　<input type="button" value="小明" onclick="alert((new student('小明',90,98,86,87,97)).toString())">
+　<input type="button" value="小红" onclick="alert((new student('小红',90,98,86,87,17)).toString())">
+</body>
+</html>

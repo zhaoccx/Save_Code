@@ -1,0 +1,35 @@
+<html>
+<head>
+<link rel="stylesheet" href="ch6_07_main.css" type="text/css">
+<style>
+  select {width:100px;}
+</style>
+</head>
+<body>
+<h2>欢迎使用速记英文单词软件</h2>
+<div class="table" style="width:350px;">
+  <table>
+    <tr>
+      <td>选择单词库</td>
+      <td><select><option>Level 1</option><option>Level 2</option></select></td>
+    </tr>
+    <tr>
+      <td>查找单词关键字</td>
+      <td><input type="text" name="keyword"></td>
+    </tr>
+    <tr>
+      <td>查找结果排序方法</td>
+      <td><input type="radio" name="sort">不排序  
+          <input type="radio" name="sort">升序
+          <input type="radio" name="sort">降序</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="right"><input type="submit" value="查找" class="button"></td>
+    </tr>
+  </table>
+  <div id="footer" style="margin-bottom:0">注：请填写所有选项</div>
+  <div id="footer" style="margin-top:0">版权所有：北京欣光软件公司</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+ function display() {
+  if (document.getElementById("type1").checked)
+    document.getElementById("width").style.display = "none";
+//    document.getElementById("width").style.visibility = "hidden";
+  else
+    document.getElementById("width").style.display = "block";
+//    document.getElementById("width").style.visibility = "visible";
+ }
+--></script>
+</head>
+<body onload="display()">
+<input type="radio" name="type" id="type1" checked onclick="display();">正方形  
+<input type="radio" name="type" id="type2" onclick="display();">长方形  
+<div id="length">长度<input type="text"></div>
+<div id="width">宽度<input type="text"></div>
+<div id="color">颜色<input type="text"></div>
+</body>
+</html>

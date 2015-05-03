@@ -1,0 +1,19 @@
+<script language="JavaScript">  <!--
+function randomString(stringLen) {   // stringLen随机字串长度
+  //有效字符
+  var validChar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+//ret为返回字串变量
+  var ret = "";
+  for (var i=0; i< stringLen; i++) {
+    //从有效字符集中得到一个随机字符，并加到返回字串变量中
+    var rnum = Math.floor(Math.random() * validChar.length);
+    ret += validChar.substring(rnum,rnum+1);
+  }
+  return ret;
+}
+
+//测试随机字串函数
+document.write(randomString(8)+"<br>");
+document.write(randomString(9)+"<br>");
+document.write(randomString(9)+"<br>");
+//-->  </script>

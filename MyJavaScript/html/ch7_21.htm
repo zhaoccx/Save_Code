@@ -1,0 +1,21 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+  count=11;
+  function countDown(){  
+    count--;
+    writeNumber(count);
+    if (count>0){
+      window.setTimeout("countDown();",1000);  //  每隔一秒钟调用本函数
+    }
+  }
+  function writeNumber(count) {
+    document.getElementById("content").innerHTML = count;
+  }
+//--></script>  
+</head>
+<html>
+<body onload="countDown();">
+  <div style="font:28px tahoma bold ; color:red" id="content"></div>
+</body>
+</html>

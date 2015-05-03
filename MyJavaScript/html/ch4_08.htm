@@ -1,0 +1,31 @@
+<html>
+<head>
+<script language="JavaScript">  <!--
+//  控制光标，o表示调用该函数时用户作用的对象
+function go(o,n) {
+  if (o.value.length>=3 && n!=null)
+    document.myForm.elements[n].focus();
+  doValidate();
+}
+// 检测文本框中是否都填写了内容，如果是，将提交钮置为可按的状态
+function doValidate() {
+  var isValid = true;
+  for (var i=0; i<document.myForm.length;i++) {
+    var items = document.myForm.elements[i];
+    if (items.value.length==0) {
+      isValid = false;
+      break;
+    }
+  }
+  if (isValid) document.myForm.submit.disabled = false;
+}  //--></script>
+</head>
+<body>
+<form name="myForm">
+  <input type="text" name="t1" size="3" onkeyup="go(this,'t2')">
+  <input type="text" name="t2" size="3" onkeyup="go(this,'t3')">
+  <input type="text" name="t3" size="3" onkeyup="go(this)">
+  <input type="submit" value="Submit" disabled>
+</form>
+</body>
+</html>

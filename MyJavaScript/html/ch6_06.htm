@@ -1,0 +1,38 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+  function addRow() {
+    var tableObj = document.getElementById("mainTb");
+    var tableBodyObj = document.getElementById("mainBody");
+    var newRowObj = document.createElement("tr");
+　　newRowObj.id = "row" + (tableObj.rows.length-1);
+    var newNameCell = document.createElement("td");
+    var newCompanyCell = document.createElement("td");
+    var newButtonCell = document.createElement("td");
+    newNameCell.innerHTML = document.getElementById("newName").value;
+    newCompanyCell.innerHTML = document.getElementById("newCompany").value;
+    newButtonCell.innerHTML = '<input type="button" value="删除" onclick="deleteRow('+(tableObj.rows.length-1)+')">';
+    
+    newRowObj.appendChild(newNameCell);
+    newRowObj.appendChild(newCompanyCell);
+    newRowObj.appendChild(newButtonCell);
+    tableBodyObj.appendChild(newRowObj);
+  }
+  function deleteRow(index) {
+    var tableBodyObj = document.getElementById("mainBody");
+    var rowObj = document.getElementById('row'+index);
+    tableBodyObj.removeChild(rowObj);
+  }
+--> </script>
+</head>
+<body  style="margin:40px">
+<div><span id="new">姓名<input type="text" name="newName" id="newName">单位<input type="text" id="newCompany"><input type="button" value="新增" onclick="addRow()"></span></div>
+<table id="mainTb" border="1">
+  <tbody id="mainBody">
+    <tr><th width="80">姓名</th><th width="250">单位</th></tr>
+    <tr id="row0"><td>张三</td><td>北京欣光软件公司</td><td><input type="button" value="删除" onclick="deleteRow(0)"></td></tr>
+    <tr id="row1"><td>李四</td><td>上海南市食品公司</td><td><input type="button" value="删除" onclick="deleteRow(1)"></td></tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>编辑用户信息</title>
+<script><!--
+function popOnLoad() {
+    if (opener) opener.blockEvents();
+}
+function popOnUnLoad() {
+    if (opener) opener.unblockEvents();
+}
+//--></script>
+</head>
+<body onload="popOnLoad();" onunload="popOnUnLoad();">
+<table>
+  <tr>
+    <td>用户名</td>
+    <td><input type="text" value="administrator"></td>
+  </tr>
+  <tr>
+    <td>权限级别</td>
+    <td><input type="text" value="All"></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="button" value="提交">&nbsp;
+        <input type="button" value="取消" onclick="window.close()"></td>
+  </tr>
+</body>
+</html>

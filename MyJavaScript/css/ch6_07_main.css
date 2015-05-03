@@ -1,0 +1,27 @@
+body,table {
+ font:12px Tahoma; 
+ margin:20px;
+}
+h2 {
+ font:bolder 24px Tahoma; 
+ color:darkred; 
+}
+.table {
+ border:1px outset lightgrey; 
+ padding:20px;
+ background:lightyellow; 
+ width:300px;
+}
+.button {
+ padding:2px 10px 2px 10px; 
+ border:1 outlset white;
+ background:darkblue; 
+ color:white;
+ font:bolder 11px Tahoma
+}
+/* 每一页的脚注格式 */
+#footer {
+ font:10px Tahoma; 
+ margin:30px 10px 10px 10px;
+ text-align:right;
+}

@@ -1,0 +1,27 @@
+<script language = "JavaScript" >
+<!--
+/* 检查字串是否是有效的字串 */
+function isValidString(inputString)
+{
+  var validChars = "0123456789abcdefghijklmnopqrstuvwxyz_- ";
+  var isValidString = true;
+  var aChar;
+  for (i = 0; i < inputString.length && isValidString == true; i++)
+  {
+    aChar = inputString.toLowerCase().charAt(i);
+    if (validChars.indexOf(aChar) == -1)
+       isValidString = false;
+  }
+  return isValidString;
+}
+
+  //  测试isValidString函数
+  var aString1 = "abcd $gggg ";
+  var aString2 = "_ab1-cd2_";
+  var aString3 = "12.34";
+  document.write(aString1+" 是" + (isValidString(aString1)?"有效的"  : "无效的") + "字串。<br>");
+  document.write(aString2+" 是" + (isValidString(aString2)?"有效的"  : "无效的") + "字串。<br>");
+  document.write(aString3+" 是" + (isValidString(aString3)?"有效的"  : "无效的") + "字串。");
+
+//-->
+</script>

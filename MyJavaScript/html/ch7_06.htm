@@ -1,0 +1,23 @@
+<script>
+function getObj(id) {
+    return document.getElementById(id);
+}
+function setSelection(listId,index) {
+  var lst = getObj(listId);    // getObj()函数见示例7－1
+  var len = lst.options.length;
+  if (len>0 && index < len) {
+    for (var i=0; i<len; i++) {
+      lst.options[i].selected=false;
+    }
+    if (index>-1)
+      lst.options[index].selected=true;
+  }
+}</script>
+<!--  下面是HTML内容，网页显示后得到如图7－1所示的效果 -->
+<body onload="setSelection('myList',1)">
+<select id="myList" multiple>
+  <option value="0">item0</option>
+  <option value="1">item1</option>
+  <option value="2">item2</option>
+</select>
+</body>

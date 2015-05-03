@@ -1,0 +1,119 @@
+<html>
+<head>
+  <script language="JavaScript">  <!--
+   function doTest() {
+    //  allElements为所有窗体元素对象数组
+    var allElements = document.myForm.elements;
+
+    //  对窗体元素对象数组中的每个元素对象进行比较判断
+    for (var i=0; i<allElements.length; i++) {
+
+      //  如果窗体元素种类是text，设置其值
+      if (allElements[i].type == "text") 
+        allElements[i].value = "我是文本框";
+
+      //  如果窗体元素种类是checkbox，将其选上并赋值
+      else if (allElements[i].type == "checkbox") {
+        allElements[i].checked = true;
+        allElements[i].value = "checkboxValue";
+      }
+
+      //  如果窗体元素种类是radio，由于一组单选钮的名称是一样的
+      //  因此，通过比较其值进行选择
+      else if (allElements[i].type == "radio") {
+        if (allElements[i].value=="yes") 
+          allElements[i].checked=true;
+      }
+
+      //  如果窗体元素种类是password，设置其值，屏幕上将不会显示内容
+      else if (allElements[i].type == "password") 
+        allElements[i].value = new Date().getTime();
+
+      //  如果窗体元素种类是textarea，设置其值
+      else if (allElements[i].type == "textarea") 
+        allElements[i].value = "long text string";
+
+      //  如果窗体元素种类是select-one，选择其第二项
+      else if (allElements[i].type == "select-one") {
+        allElements[i].selectIndex = 1;
+      }
+
+      //  如果窗体元素种类是多选列表select-multiple，选择每一项
+      else if (allElements[i].type == "select-multiple") {
+        allElements[i].options[0].selected = true;
+        allElements[i].options[1].selected = true;
+      }
+
+      //  如果窗体元素种类是reset，出现提示框后按下它
+      else if (allElements[i].type == "reset") {
+alert("JavaScript将自动按下\"重置\"钮。");
+        allElements[i].click();
+	 }
+    }
+   } //--></script>
+</head>
+<body>
+<form name="myForm">
+  <table>
+    <tr>
+      <td>单行文本框</td>
+      <td><input type="text" name="myText"></td>
+    </tr>
+    <tr>
+      <td>复选钮</td>
+<td><input type="checkbox" name="myCheckbox"></td>
+    </tr>
+<tr>
+<td>单选钮</td>
+<td><input type="radio" name="myRadio" value="yes">Yes 
+           <input type="radio" name="myRadio" value="no">No
+</td>
+    </tr>
+    <tr>
+<td>密码框</td>
+<td><input type="password" name="myPassword"></td>
+    </tr>
+    <tr>
+<td>隐含变量</td>
+<td><input type="hidden" name="myHidden"></td>
+    </tr>
+<tr>
+<td>按钮</td>
+<td><input type="button" name="myButton" value="普通按钮" ></td>
+    </tr>
+    <tr>
+      <td>提交钮</td>
+<td><input type="submit" name="mySubmit" value="提交" ></td>
+    </tr>
+<tr valign="top">
+<td>多行文本框</td>
+<td><textarea name="myTextarea" cols="40" rows="3"> </textarea></td>
+    </tr>
+    <tr>
+<td>下拉列表</td>
+<td>
+<select name="mySelect">
+<option>item1</option>
+<option>item2</option>
+</select>
+</td>
+    </tr>
+    <tr valign="top">
+      <td>多选列表</td>
+<td>
+        <select   name="mySelect" multiple size="2">
+<option>item1</option>
+<option>item2</option>
+</select>
+</td>
+    </tr>
+<tr>
+<td>重置钮</td>
+<td><input type="reset"    name="myReset" value="重置"></td>
+    </tr>
+  </table>
+<div>==================================================</div>
+<div><input type="button" value="开始测试" onclick="doTest()"></div>
+</form>
+</body>
+</html>

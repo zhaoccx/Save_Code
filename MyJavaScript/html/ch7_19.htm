@@ -1,0 +1,170 @@
+<html>
+<head>
+<style>
+  a{
+    cursor: default;
+    text-decoration: none;
+    color: #333;
+  }
+  #menubar {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:26px;
+    font:11px tahoma;
+    color:#333;
+    background:#eee;
+  }
+  #menubar a {
+    padding:2px;
+    margin:10px;
+  }
+  #menubar td {
+    text-align:center;
+    background:#eee;
+    border: 1px solid #eee;
+    cursor:default;
+    white-space:nowrap;
+  }
+  .menupane{
+    position:absolute;
+    border:1px solid #ccc;
+    border-right:2px solid #ccc;
+    border-bottom:2px solid #ccc;
+    background:#fff;
+    z-index:10;
+    font:11px Tahoma;
+    color:#333;
+    width:150px;
+  }
+  #menubar img, .menupane img {
+    margin-right:5px;
+    vertical-align:middle;
+  }
+  #menubar img.hasMenu {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+  .menupane a{
+    display:block;
+    padding:2px;
+    padding-left:10px;
+  }
+  .menupane a:hover {
+    background-color:#999;
+    color:#fff;
+  }
+</style>
+<script language="JavaScript"><!--
+  var mIndex = -1;
+  var lastIndex = -1;
+  var isOpen = false;
+  document.onclick = doClick;
+  var menuCount =3;
+  function openLever1() {  //  打开下拉菜单
+    var o = getObj("menu"+mIndex);
+    if (getObj("submenu"+mIndex)) {
+      show("submenu"+mIndex);  // 显示下拉菜单并定位下拉菜单
+      getObj("submenu"+mIndex).style.left=o.offsetLeft;
+      getObj("submenu"+mIndex).style.top=o.offsetTop + getObj("menubar").offsetHeight - 4;
+    }
+    isOpen = true;
+    lastIndex = mIndex;
+    setStyle("menu"+mIndex,getHlightStatus());
+  }
+  function mouseOverMenu(index) {
+    mIndex = index;
+    setStyle("menu"+index,getHlightStatus());
+    if (isOpen) {
+      if (lastIndex>-1)
+        hideMenu(lastIndex);
+      setStyle("menu"+lastIndex,"none");
+      if (getObj("submenu"+index))  openLever1();
+    }
+  }
+  function mouseOutMenu(index) {
+    if (!isOpen || !getObj("submenu"+index)) {
+      setStyle("menu"+index,"none");
+    }
+    mIndex = -1;
+  }
+  function doClick() {
+    if (mIndex==-1) {  // not click on the menubar
+      for (var i=0; i<menuCount; i++) {
+        hideMenu(i);
+        eval("setStyle('menu"+i+"','none')");
+      }
+      isOpen = false;
+      lastIndex = -1;
+    }
+    else { // click on the menubar
+      if (isOpen && mIndex==lastIndex) {
+        hideMenu(lastIndex);
+        isOpen = false;
+      }
+      else
+        openLever1();
+      setStyle("menu"+mIndex,getHlightStatus());
+    }
+  }
+  function setStyle(id,style) { 
+    if (style=="close_hlight") {
+      getObj(id).style.borderTop = "1px solid white";
+      getObj(id).style.borderLeft = "1px solid white";
+      getObj(id).style.borderRight = "1px solid #999";
+      getObj(id).style.borderBottom = "1px solid #999";
+    }
+    else if (style=="open_hlight") {
+      getObj(id).style.borderTop = "1px solid #999";
+      getObj(id).style.borderLeft = "1px solid #999";
+      getObj(id).style.borderRight = "1px solid white";
+      getObj(id).style.borderBottom = "1px solid white";
+    }
+    else if (style=="none") {
+      getObj(id).style.border = "1px solid #eee";
+    }
+  }
+  function getHlightStatus() {
+    if (isOpen) return "open_hlight";
+    else return "close_hlight";
+  }
+  function getObj(id) {
+    return document.getElementById(id);
+  }
+  function show(id) {
+    if (getObj(id)) 
+     getObj(id).style.display="block";
+  }
+  function hide(id) {
+    if (getObj(id)) 
+     getObj(id).style.display="none";
+  }
+  function hideMenu(index) {
+    var id = "submenu" + index;
+    if (getObj(id)) 
+      hide(id);
+  }
+//--></script>
+</head>
+<body>
+  <table id="menubar" cellspacing="0" cellpadding="0" border="0"><tr>
+    <td onmouseover="mouseOverMenu(0)" onmouseout="mouseOutMenu(0)" id="menu0" style="width:70px;"><a href="#"><img src="home.gif" border="0">Home</a></td>
+    <td onmouseover="mouseOverMenu(1)" onmouseout="mouseOutMenu(1)" id="menu1" style="width:90px;"><img src="review.gif">Review<img src="arrowDown.gif" class="hasMenu"></td>
+    <td onmouseover="mouseOverMenu(2)" onmouseout="mouseOutMenu(2)" id="menu2" style="width:90px;"><img src="test.gif">Test<img src="arrowDown.gif" class="hasMenu"></td>
+    <td><img src="image/spacer.gif" width="100%" height="1" border="0"></td>
+  </tr></table> 
+  <div id="submenu1" class="menupane" style="display:none"> 
+   <a href="#">Level 1</a> 
+   <a href="#">Level 2</a> 
+   <hr>
+   <a href="#" target="_blank">Demo</a> 
+  </div> 
+  <div id="submenu2" class="menupane" style="display:none"> 
+   <a href="#">Level 1</a> 
+   <a href="#">Level 2</a> 
+   <hr>
+   <a href="#" target="_blank">Demo</a> 
+  </div> 
+</body>
+<html>

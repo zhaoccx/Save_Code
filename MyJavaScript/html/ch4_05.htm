@@ -1,0 +1,25 @@
+<html>
+<head>
+  <script language="JavaScript">  <!--
+　　// 通过窗体的onSubmit事件调用该函数
+   function doSubmit() {    
+    //  用户输入的电子邮件地址
+    var sEmail = document.emailForm.txtEmail.value;
+    //  用户输入的电子邮件主题
+    var sSubject = document.emailForm.txtSubject.value;
+    //  窗体中action的内容
+    var sAction = document.emailForm.action;
+    //  将用户输入的电子邮件地址和主题附加到action
+    //  使用函数escape（）将字串中特殊字符转换为url可识别的字符
+    document.emailForm.action = sAction + escape(sEmail) + "?subject="+escape(sSubject);
+   }  //--></script>
+</head>
+<body>
+<form name="emailForm" action="mailto:" method="post" onsubmit="doSubmit()">
+  电子邮件地址：<input type="text" name="txtEmail"><br>
+  主题：<input type="text" name="txtSubject"><br>
+  <input type="submit" name="btnSubmit" value="发送">
+  <input type="reset" name="btnReset" value="重置">
+</form>
+</body>
+</html>

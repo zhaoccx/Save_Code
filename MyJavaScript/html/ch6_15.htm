@@ -1,0 +1,23 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+function display() {
+  document.getElementById("mainContent").style.display = "block";
+  document.getElementById("wait").style.display = "none";
+}
+function writeData() {
+  var s = "<table border=1><tr><th>Header1</th><th>Header2</th><th>Header3</th><th>Header4</th><th>Header5</th></tr>";
+  for (var i=0; i<1500; i++) 
+    s += '<tr><td>col'  +  i  +  '1</td><td>col'  +  i  +  '2</td><td>col' + i + '3</td><td>col' + i + '4</td><td>co' + i + '5</td></tr>'
+  s += '</table>';
+  document.write(s);
+}
+--> </script>
+</head>
+<body onload="display()">
+<div id="wait">ÇëÉÔºò...</div>
+<div id="mainContent" style="display:none">
+  <script>writeData();</script>
+</div>
+</body>
+</html>

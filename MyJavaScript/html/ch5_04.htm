@@ -1,0 +1,41 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+  var myWin;
+  function winOpen(url) {
+    var screenWidth = screen.availWidth;
+    var screenHeight = screen.availHeight;
+    window.self.resizeTo(0.5*screenWidth,screenHeight);
+    window.self.moveTo(0,0);
+var attr = "location=1, menubar=1, scrollbars=1, toolbar=1, status=1, resizable=1";
+myWin = window.open(url,"testWindow");
+myWin.resizeTo(0.5*screenWidth,screenHeight);
+myWin.moveTo(0.5*screenWidth,0);
+myWin.focus();
+  }
+  // 控制子窗口
+  function controlSubWindow() {
+   myWin.document.forms[0].subText.value = document.forms[0].mainText.value;
+  }
+  // 不允许控制子窗口
+  function disableControl() {
+    document.forms[0].mainButton.disabled=true;    
+  }
+//--></script>
+</head>
+<body >
+<form>
+  主窗口：<input type="button" value="打开子窗口" onclick="winOpen('ch5_04_new.htm');"> <br>
+  <hr>
+<!-- 控制子窗口的按钮   -->
+  <input type="radio" name="rdoControl" checked>
+  <input type="text" name="mainText"> 
+  <input type="button" name="mainButton" value="改变子窗口中的文本框内容"  onclick="controlSubWindow();">
+  <br>
+<!-- 不允许控制子窗口的按钮   -->
+  <input type="radio" name="rdoControl" onclick="disableControl();">不允许改变子窗口的内容
+  <br>
+  <input type="button" value="关闭主窗口和子窗口" onclick="myWin.close();self.close();">
+</form>
+<body>
+</html>

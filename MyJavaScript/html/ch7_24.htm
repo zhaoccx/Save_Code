@@ -1,0 +1,39 @@
+<html>
+<head>
+<script language="JavaScript"> <!--
+	var c = 0;
+	var delta = "||";
+	var bars ="||";
+
+	function waitingBar() {
+		c = c + 2; 
+		bars = bars + delta; 
+		document.getElementById("bar").value = bars; 
+		document.getElementById("percent").value = c+"%"; 
+		if (c<99) 
+		  setTimeout("waitingBar()",200);
+		else 
+		  location.href = "http://www.usitd.com";
+	}
+--></script>
+</head>
+<body onload="waitingBar();" style="background-color:#fff">
+<table width="400" align="center" style="margin-top:80px">
+  <tr>
+		<td align="center"><!--广告链接-->
+    	<iframe src="http://www.a4flash.com/lib/ads/galleries/flashtemp.php?tempid=INT006" width="400" height="300" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+		</td>
+  </tr>
+  <tr><td>&nbsp;</td></tr>
+	<tr>
+ 		<td align="center">页网载入中，请稍候</td>
+  </tr>
+	<tr><td>
+		<input type="text" id="bar" size=46 style="font-family:Arial; font-weight:bolder; color:black; background-color:#EAEAEA; padding:0px; border-style:none;">
+  </td></tr>
+	<tr><td>
+		<input type="text" id="percent" size=46 style="font-family:Arial; bolder;color:black; background-color:#fff;text-align:center; border-style:none;">
+  </td></tr>
+</table>
+</body>
+</html>

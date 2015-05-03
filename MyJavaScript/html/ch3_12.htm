@@ -1,0 +1,11 @@
+<script language="JavaScript">  <!--
+function data(y) {
+  return '<IMG SRC="dot.gif" WIDTH="1" HEIGHT="' + Math.floor((y*50)+51) + '">';
+}
+var output = '<TABLE CELLPADDING="1" CELLSPACING="0" BORDER="0"><TR>';
+for (var i=0; i<40; i+=.1) {
+  output += '<TD VALIGN="BOTTOM">' + data(Math.sin(i)) + '<\/TD>';
+}
+output += '<\/TR><\/TABLE>';
+document.write(output);
+//--></script>

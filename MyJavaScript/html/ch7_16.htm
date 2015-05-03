@@ -1,0 +1,75 @@
+<html>
+<head>
+<style type="text/css">
+  body {width:100%; height:100%; margin:0px; overflow:auto;}
+  .titlebar {position:absolute; left:0px; top:0px;width:100%; background-color:#336699; cursor:move;font-family:tahoma; font-size:12px;}
+  .wins {position:absolute; visibility:hidden;border:3px outset #c0c0c0; }
+  .text {position:absolute; background-color:#ffffff; font-family:tahoma; font-size:12px; overflow:auto;}
+  .title {font-weight:bold; color:#ffffff;}
+  p {margin:5px;}
+</style>
+<script type="text/javascript"> <!--
+  var ie5up = (document.getElementById && document.all);
+  var ns6up = (!document.all && document.getElementById);
+  var active = 0;  
+  var x, y, coordsX, coordsY;
+  function start(windowName){ // 设置开关变量active，保存当前坐标
+  	dragWind = document.getElementById(windowName);
+  	y = coordsY-parseInt(dragWind.style.top);
+  	x = coordsX-parseInt(dragWind.style.left);
+  	active=1;
+  }
+  function drag(e){
+  	coordsY = ns6up?e.clientY:event.clientY;
+  	coordsX = ns6up?e.clientX:event.clientX;
+  	if(active){  // 计算新的坐标
+  	  dragWind.style.top = coordsY-y;
+  	  dragWind.style.left = coordsX-x;
+  	}
+  }
+  function closeWin(){
+  	dragWind.style.visibility= "hidden";
+  }
+  function openWin(windowName, contentName, topWin, leftWin, winWidth, winHeight){
+  	dragWind = document.getElementById(windowName);
+  	dragCont = document.getElementById(contentName);
+  	dragWind.style.visibility = "visible";
+  	dragWind.style.top = topWin;
+  	dragWind.style.left = leftWin;
+  	dragWind.style.width = winWidth;
+  	dragWind.style.height = winHeight;
+  	dragCont.style.top = 20;
+  	dragCont.style.left = 0;
+  	dragCont.style.width = ns6up?winWidth:winWidth-6;
+  	dragCont.style.height = ns6up?winHeight-20:winHeight-24;
+  	imgs = document.getElementById("wind1").getElementsByTagName("IMG");
+  	for(var i=0; i<imgs.length;i++){
+  	  imgs[i].style.cursor = (ie5up)?"hand":"pointer";
+  	  imgs[i].ondragstart = new Function("return false");
+  	}
+  }
+document.onmousemove = drag;
+document.onmouseup=new Function("active=0"); // 重新设置开关变量active
+document.onselectstart = new Function("return false");  // 针对IE
+//--></script>
+</head>
+<body style="width:100%;height:100%">
+<p><a href="javascript:openWin('wind1','cont1',50,300,300,200)" >最新消息</a></p>
+<div id="wind1" class="wins">
+	<table width=100% border=0 cellpadding=0 cellspacing=1 class="titlebar" onmousedown="start('wind1');">
+	  <tr>
+		<td width=20><img src="xxIcon.gif" border=0 width=16 height=16 hspace=1></td>
+		<td class="title">最新消息</td>
+		<td width=16 align="right"><img src="close.gif" border=0 width=16 height=16 onclick="closeWin()" title="close"></td>
+	  </tr>
+	</table>
+	<span id="cont1" class="text">
+	  <p>
+		<b>美国收费最昂贵大学的最新排行榜</b><br>
+			……
+			……
+	  </p>
+	</span>
+</div>
+</body>
+</html>

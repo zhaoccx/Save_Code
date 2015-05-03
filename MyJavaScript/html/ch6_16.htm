@@ -1,0 +1,181 @@
+<html>
+<head>
+<style>
+body, table, div {font-size:14px;}
+.section {position:absolute;left:10px;top:45px;border:1px solid #999;
+      width:400px;height:340px;z-index:1;background-color:lightYellow;padding:20px;}
+ .tabs {position:absolute;left:10px;top:20px;width:300px;height:20px;z-index:10}
+ .tabs div{border:1px solid #333; margin:4px; padding:2px; padding-left:20px; 
+      float:left;padding-right:20px; background-color:#eee;z-index:10; cursor:pointer}
+ table {border:1px solid #333; width:390px;}
+ tr {background:#fff}
+ th {background:#ccc}
+ td,th {text-align:center;height:25px}
+ td {border-top:1px solid #ccc;}
+</style>
+<script language="JavaScript">　<!--
+ function display(o) { 
+  if (o.id=="basic") {
+  	document.getElementById("basic").style.backgroundColor = "lightYellow";
+  	document.getElementById("basic").style.zIndex= "20";
+  	document.getElementById("basic").style.borderBottom= "1px solid lightYellow";
+  	document.getElementById("score").style.backgroundColor = "#eee";
+  	document.getElementById("score").style.borderBottom= "1px solid #999";
+  	document.getElementById("tabBasic").style.display= "block";
+  	document.getElementById("tabScore").style.display= "none";
+  }
+  else { 
+  	document.getElementById("basic").style.backgroundColor = "#eee";
+  	document.getElementById("basic").style.borderBottom= "#999";
+  	document.getElementById("score").style.backgroundColor = "lightYellow";
+  	document.getElementById("score").style.borderBottom= "1px solid lightYellow";
+  	document.getElementById("tabBasic").style.display= "none";
+  	document.getElementById("tabScore").style.display= "block";
+  }
+ }
+ function displayImg(id) { 
+  document.getElementById("img").style.display= "none";
+  if (id!="none") {
+	document.getElementById("img").src=id+".gif";
+	document.getElementById("img").style.display= "block";
+  }
+ }
+--></script>
+</head>
+<body onload="display(document.getElementById('basic'))">
+<div class="tabs">
+  <div id="basic" onclick="display(this)">基本信息</div>
+  <div id="score" onclick="display(this)">成绩</div>
+</div>
+<div class="section" id="tabBasic">
+<table style="width:200px">
+  <tr>
+	<th>姓名</th>
+	<th>学号</th>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';displayImg('001')" onmouseout="this.style.backgroundColor='#fff';displayImg('none')">
+    <td>张小山</td>
+    <td>001</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';displayImg('002');" onmouseout="this.style.backgroundColor='#fff';displayImg('none')">
+    <td>李小石</td>
+    <td>002</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';displayImg('003')" onmouseout="this.style.backgroundColor='#fff';displayImg('none')">
+    <td>陈休休</td>
+    <td>003</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';;displayImg('004')" onmouseout="this.style.backgroundColor='#fff';displayImg('none')">
+    <td>王北北</td>
+    <td>004</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>郭宁</td>
+    <td>005</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>张大力</td>
+    <td>006</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>王小而</td>
+    <td>007</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>陈庆</td>
+    <td>008</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>宋妙生</td>
+    <td>009</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>王飞</td>
+    <td>010</td>
+  </tr>
+</table>
+<img style="position:absolute;left:240px;top:20px;display:none;z-index:100" id="img" onclick="this.style.display='none';"></img>
+</div>
+<div class="section" id="tabScore">
+<table>
+  <tr>
+	<th>姓名</th>
+	<th>语文</th>
+	<th>数学</th>
+	<th>历史</th>
+	<th>体育</th>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>张小山</td>
+    <td>88</td>
+    <td>92</td>
+    <td>100</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>李小石</td>
+    <td>88</td>
+    <td>92</td>
+    <td>100</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>陈休休</td>
+    <td>88</td>
+    <td>92</td>
+    <td>100</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>王北北</td>
+    <td>88</td>
+    <td>92</td>
+    <td>100</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>郭宁</td>
+    <td>86</td>
+    <td>90</td>
+    <td>90</td>
+    <td>B</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>张大力</td>
+    <td>89</td>
+    <td>95</td>
+    <td>83</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>王小而</td>
+    <td>96</td>
+    <td>93</td>
+    <td>90</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>陈庆</td>
+    <td>96</td>
+    <td>88</td>
+    <td>88</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>宋妙生</td>
+    <td>98</td>
+    <td>98</td>
+    <td>100</td>
+    <td>A</td>
+  </tr>
+  <tr onmouseover="this.style.backgroundColor='#ccc';" onmouseout="this.style.backgroundColor='#fff'">
+    <td>王飞</td>
+    <td>85</td>
+    <td>95</td>
+    <td>94</td>
+    <td>B</td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

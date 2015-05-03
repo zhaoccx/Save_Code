@@ -1,0 +1,30 @@
+<html>
+<script language="JavaScript"><!--
+  function resizeFrame(flag) {
+    if (flag==1)
+      parent.document.body.rows="100%,*";
+    else
+      parent.document.body.rows="10%,*";
+  }
+  function changeList() {
+   parent.frame2.document.location.href  =  "ch5_13_frame2.htm?type="  +  document.forms[0].filter.value;
+  }
+
+//--></script>
+<body onload="resizeFrame(1);">
+  <form>
+    请输入公司信息：<br>
+    <hr>
+    名称：<input type="text"> <br>
+    地址：<input type="text"> <br>
+    编号：<input type="text"> <br>
+    <hr>
+    <select name="filter" onchange="changeList()" style="width:150px;">
+      <option value="0">请选择公司规模：</option>
+      <option value="small">小规模</option>
+      <option value="large">大规模</option>
+    </select><br>
+    <div id="displayDetail"></div>
+  </form>
+</body>
+</html>

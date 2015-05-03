@@ -1,0 +1,39 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+  //设置网页标题
+  function setTitle() {
+    document.title = "Today is " + new Date();
+  }
+  //显示网页时……
+  function hello() {
+    alert("您好");
+  }
+  //离开网页时……
+  function bye() {
+    alert("再见");
+  }
+  //显示网页最后更新日期
+  function updateInfo() {
+    document.write("上一次本网页更新日期：");
+    document.write(document.lastModified);
+  }
+  //显示新的网页内容
+  function newWindow() {
+    var msg1 = "这是新的一页。";
+    var msg2 = "大家好。";
+    document.open("text/html", "replace");
+    document.write(msg1);
+    document.write(msg2);
+    document.close();
+}
+//--></script>
+</head>
+<body onload="setTitle();hello();" onunload="bye();">
+  <a href="javascript:newWindow()">新的一页</a>
+  <p>
+  <script language="JavaScript"><!--
+    updateInfo();
+  //--></script>
+<body>
+</html>

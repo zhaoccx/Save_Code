@@ -1,0 +1,45 @@
+<script>
+function getObj(id) {
+    return document.getElementById(id);
+}
+function clearList(alist) {
+  var lst = getObj(alist);    
+  var len = lst.options.length;
+  for (var i = (len-1); i >= 0; i--){
+    lst.options[i]= null;
+  }
+}
+function sortList(listId) {
+  var aList = new Array();
+  var aText = new Array();
+  var lst = getObj(listId); 
+  for (var i=0;i<lst.length;i++) {
+    aList[i] = new listObj(lst.options[i].text,lst.options[i].value);
+    aText[i] = lst.options[i].text;
+  }
+  aText.sort();
+  clearList(listId);  
+  for (var i=0;i<aText.length;i++) {
+    lst.options[i]=new Option(aText[i],getValueByKey(aList,aText[i]));
+  }
+}
+function getValueByKey(aList,key) {
+  for (var i=0; i<aList.length; i++) {
+    if (aList[i].text == key) return aList[i].value;
+  }
+  return "";
+}
+function listObj(text,value) {
+  this.text = text;
+  this.value = value;
+}</script>
+<!--下面是HTML内容，网页初始状态如左图所示，点击"排序"钮后得到如右图所示的效果 -->
+<select id="myList" multiple  size="6">
+ <option value="0">book</option>
+ <option value="1">pen</option>
+ <option value="2">pencil</option>
+ <option value="3">amount</option>
+ <option value="4">music</option>
+ <option value="5">basic</option>
+</select>
+<input type="button" value="排序" onclick="sortList('myList')">

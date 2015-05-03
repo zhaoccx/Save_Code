@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Animation</title>
+<script language="JavaScript"><!--
+// Ô¤×°ÔØÍ¼Ïñ
+var theImages = new Array(3);
+for (i=0, n=theImages.length; i<n; i++) {
+  theImages[i] = new Image();
+  theImages[i].src='images/' + i + '.gif';
+}
+
+// Ô¤×°ÔØÁ´½Ó
+var links = new Array(
+  'http://www.yahoo.com/',
+  'http://www.msn.com/',
+  'http://www.google.org/'
+);
+
+var currentImage = 1;
+var Run = true;
+var speed = 1000; // 1 ÃëÖÓ
+
+// ¶¯»­Í¼Æ¬
+function animate() {
+  if (!document.images) return;
+  if (!Run) return;
+  document.images["myImage"].src = theImages[currentImage].src;
+  currentImage++;
+  if (currentImage > theImages.length-1) currentImage=0;
+  setTimeout('animate()',speed);
+}
+
+// ´ò¿ªÁ´½ÓµÄÍøÒ³
+function go() {
+  window.open(links[currentImage],'_blank');
+}
+//--></script>
+</head>
+<body onLoad="animate()">
+  <a href="javascript:go();"><img name="myImage" src="0.gif" border=0></a>
+<body>
+</html>

@@ -1,0 +1,12 @@
+<script>
+function replaceStr(inStr,oldStr,newStr) {
+  var ret = inStr;
+  while (ret.indexOf(oldStr)>-1) {
+      ret = ret.replace(oldStr,newStr);
+  }
+  return ret;
+}
+// 应用replaceStr()函数
+var s = "This is a book";
+alert(replaceStr(s, "is","__"));  // 得到  Th__ __ a book
+</script>

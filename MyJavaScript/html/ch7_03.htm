@@ -1,0 +1,23 @@
+<script>
+function getObj(id) {
+    return document.getElementById(id);
+}
+function isCheckedRadio(formId,radioName) {
+  var f = getObj(formId);  
+  for (var i=0; i<f.elements.length; i++) {
+    if (f.elements[i].name == radioName && f.elements[i].checked) return true;
+  }
+  return false;
+}
+function msg() {
+  if (isCheckedRadio('myForm', 'myRadio')) alert('选择了单选钮');
+　else  alert('没有选择单选钮');　
+}
+</script> 
+<!-- 下面是在HTML中的语句 -->
+<form id="myForm">
+<input type="radio" name="myRadio" value="top">上
+<input type="radio" name="myRadio" value="middle">中
+<input type="radio" name="myRadio" value="bottom">下
+<input type="button" value="Go" onclick=" msg()">　
+</form>

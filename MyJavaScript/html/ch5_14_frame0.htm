@@ -1,0 +1,31 @@
+<html>
+<head>
+<script language='JavaScript'><!--
+function controler(flag) {
+ if (flag==1) {
+	parent.document.body.cols='99%,30,0'; 
+	document.getElementById('b2').disabled=false;
+	document.getElementById('b1').disabled=true;
+	document.getElementById('b3').disabled=false;
+ }
+ else if (flag==2) {
+	parent.document.body.cols='0,30,99%'; 
+	document.getElementById('b1').disabled=false;
+	document.getElementById('b2').disabled=true;
+	document.getElementById('b3').disabled=false;
+ }
+ else {
+	parent.document.body.cols='50%,30,*'; 
+	document.getElementById('b1').disabled=false;
+	document.getElementById('b2').disabled=false;
+	document.getElementById('b3').disabled=true;
+ }
+}
+//--></script>
+</head>
+<body style="margin:0;padding:0;text-align:left;">
+<input type="button" value=">" style="padding-top:50px;padding-bottom:50px;" onclick="controler(1)" id="b1"><p>
+<input type="button" value="<" style="padding-top:50px;padding-bottom:50px;" onclick="controler(2)" id="b2"><p>
+<input type="button" value="|" style="padding-top:50px;padding-bottom:50px;" onclick="controler(3)" id="b3">
+</body>
+</html>

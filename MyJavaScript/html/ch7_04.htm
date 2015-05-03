@@ -1,0 +1,22 @@
+<script>
+function getObj(id) {
+    return document.getElementById(id);
+}
+function getRadio(formId,radioName) {
+  f = getObj(formId); 
+  c = document.getElementsByName(radioName);
+  l = c.length;
+  for (var i=0; i<l; i++) {
+    if (c.item(i).checked) return c.item(i).value;
+  }
+  return "";
+}
+</script>
+<!-- 下面是在HTML中的语句, 显示网页后将得到 "middle" -->
+<body onload="alert(getRadio('myForm', 'myRadio'))">
+<form id="myForm">
+<input type="radio" name="myRadio" value="top">上
+<input type="radio" name="myRadio" value="middle" checked>中
+<input type="radio" name="myRadio" value="bottom">下
+</form>
+</body>

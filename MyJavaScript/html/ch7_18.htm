@@ -1,0 +1,117 @@
+<html>
+<head>
+<style>
+  a{
+    cursor: default;
+    text-decoration: none;
+    color: #333;
+  }
+  #menubar {
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:26px;
+    font:11px tahoma;
+    color:#333;
+    background:#eee;
+  }
+  #menubar a {
+    padding:2px;
+    margin:10px;
+  }
+  #menubar td {
+    text-align:center;
+    background:#eee;
+    border: 1px solid #eee;
+    cursor:default;
+    white-space:nowrap;
+  }
+  #menuBar img{
+    margin-right:5px;
+    vertical-align:middle;
+  }
+  #menuBar img.hasMenu {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+</style>
+<script language="JavaScript"><!--
+  var mIndex = -1;
+  var lastIndex = -1;
+  var isOpen = false;
+  document.onclick = doClick;
+  var menuCount =3;
+  function openLever1() {
+    isOpen = true;
+    lastIndex = mIndex;
+    // 设置菜单名样式为打开了下拉菜单时的样式
+    setStyle("menu"+mIndex,getHlightStatus());  
+  }
+  function mouseOverMenu(index) {
+    mIndex = index;
+    setStyle("menu"+index,getHlightStatus()); // 根据下拉菜单是否打开设置菜单名样式
+    if (isOpen) { // 如果打开了下拉菜单，设置上一个菜单名样式为缺省状态
+      setStyle("menu"+lastIndex,"none");
+      openLever1();
+    }
+  }
+  function mouseOutMenu(index) {
+    if (!isOpen) { // 如果没有打开下拉菜单，设置菜单名样式为缺省状态
+      setStyle("menu"+index,"none");  
+    }
+    mIndex = -1;
+  }
+  function doClick() {
+    if (mIndex==-1) { // 当没有点击菜单名上时……
+      for (var i=0; i<menuCount; i++) {
+        eval("setStyle('menu"+i+"','none')");// 设置菜单名样式为缺省状态
+      }
+      isOpen = false;
+      lastIndex = -1;
+    }
+    else { // 当点击在菜单名上时……
+      if (isOpen && mIndex==lastIndex) {
+        isOpen = false;
+      }
+      else
+        openLever1();
+      setStyle("menu"+mIndex,getHlightStatus());
+    }
+  }
+  function setStyle(id,style) { 
+    if (style=="close_hlight") {
+      getObj(id).style.borderTop = "1px solid white";
+      getObj(id).style.borderLeft = "1px solid white";
+      getObj(id).style.borderRight = "1px solid #999";
+      getObj(id).style.borderBottom = "1px solid #999";
+    }
+    else if (style=="open_hlight") {
+      getObj(id).style.borderTop = "1px solid #999";
+      getObj(id).style.borderLeft = "1px solid #999";
+      getObj(id).style.borderRight = "1px solid white";
+      getObj(id).style.borderBottom = "1px solid white";
+    }
+    else if (style=="none") {
+      getObj(id).style.border = "1px solid #eee";
+    }
+  }
+  function getHlightStatus() { // 根据下拉菜单是否打开得到菜单名的样式状态
+    if (isOpen) return "open_hlight";
+    else return "close_hlight";
+  }
+  function getObj(id) {
+    return document.getElementById(id);
+  }
+//--></script>
+
+</head>
+<body>
+  <table id="menubar" cellspacing="0" cellpadding="0" border="0"><tr>
+    <td onmouseover="mouseOverMenu(0)" onmouseout="mouseOutMenu(0)" id="menu0" style="width:70px;"><a href="#">Home</a></td>
+    <td onmouseover="mouseOverMenu(1)" onmouseout="mouseOutMenu(1)" id="menu1" style="width:90px;">Review<img src="arrowDown.gif" class="hasMenu"></td>
+    <td onmouseover="mouseOverMenu(2)" onmouseout="mouseOutMenu(2)" id="menu2" style="width:90px;">Test<img src="arrowDown.gif" class="hasMenu"></td>
+    <td><img src="image/spacer.gif" width="100%" height="1" border="0"></td>
+  </tr></table> 
+</body>
+<html>

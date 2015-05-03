@@ -1,0 +1,16 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+function changeImage() {
+  var today = new Date();
+  var number = today.getDay();
+  document.images["myImage"].src = "images/" + number + ".gif";
+}
+//--></script>
+</head>
+<body onload="changeImage()">
+<!-- 其它HTML语句 -->
+<!-- 需要替换的图像 --><img src="images/1.gif" name="myImage">
+<!-- 其它HTML语句 -->
+</body>
+</html>

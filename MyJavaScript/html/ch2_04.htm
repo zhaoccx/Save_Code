@@ -1,0 +1,19 @@
+<script> <!--
+  function prevMonth(month) {
+    if(month == 1) {
+      month = 12;
+    } else {
+      month--;
+    }
+    return month;
+  }
+
+  var myMonth = 10;
+  document.write ('当前月份是：  ' + myMonth + '<br>');
+
+  var prevMonthStr = prevMonth(myMonth);
+
+  document.write ('上一个月是：  ' + prevMonthStr + '<br>');
+
+  document.write ('myMonth值是：  ' + myMonth);
+//--></script>

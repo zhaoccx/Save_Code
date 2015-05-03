@@ -1,0 +1,18 @@
+<script>
+function getObj(id) {
+    return document.getElementById(id);
+}
+function setAllSelection(alist) {
+  var lst = getObj(alist);    
+  var len = lst.options.length;
+  for (var i=0;i<len; i++) {
+    lst.options[i].selected=true;
+  }
+}</script>
+<!-- 下面是HTML内容，网页初始时如图7－2左图所示，点击全选钮后得到如图7－2右图所示的效果 -->
+<select id="myList" multiple  size="6">
+ <option value="0">白菜</option>
+ <option value="1">萝卜</option>
+ <option value="2">青椒</option>
+</select>
+<input type="button" value="全选" onclick  =  "setAllSelection('myList')">

@@ -1,0 +1,70 @@
+<html>
+<head>
+  <script language="javascript" src="js/util.js"></script>
+  <script language="JavaScript"><!--
+var errMsg = "";  // 全局变量，用于存放出错信息
+// 全局变量数组，用于存放出错域的id
+var allFormValidateFields = new Array();  
+function validate() {
+  doErrHighlight(isEmptyString(getObj("username").value), 
+                  '请输入"用户名".\n', 
+                   "username");
+  doErrHighlight(isEmptyString(getObj("password").value), 
+                    '请输入"密码".\n', 
+                    "password");
+  doErrHighlight(!isValidString(getObj("username").value), 
+                    '无效的"用户名" \n', 
+                    "username");
+  doErrHighlight(getObj("username").value!="" && !isMinString(getObj("username").value,6), 
+                   '"用户名"长度应大于6个字符 \n', 
+                   "username");
+  doErrHighlight(getObj("password").value!="" && !isMinString(getObj("password").value,6), 
+                   '"密码"长度应大于6个字符 \n', 
+                   "password");
+
+  if (errMsg!="") {
+    alert(errMsg);
+    errMsg = "";
+    allFormValidateFields = new Array();
+    return false;
+  }
+}
+
+function doErrHighlight(isError, s, id) {
+  if (isError) {
+    errMsg += s;  // 将出错信息添加到全局变量中
+    errHighlight(id,true);  // 高亮出错域
+    addToAllFormValidateFields(id);  // 将出错域的id添加到全局变量数组中
+  }
+  else
+    if (indexOfArray(allFormValidateFields,id)==-1) errHighlight(id,false);  // 对于纠正了错误的域，取消高亮效果
+}
+
+function addToAllFormValidateFields(id) {
+  if (indexOfArray(allFormValidateFields,id)==-1)
+    allFormValidateFields[allFormValidateFields.length] = id;
+}
+    function doSubmit() {
+      if (validate()) getObj("mainForm").submit;
+    }
+  //--></script>
+</head>
+<body>
+<form id="mainForm" method="post">
+  <table>
+    <tr>
+      <td>用户名</td>
+      <td><input type="text" name="username" id="username"></td>
+    </tr>
+    <tr>
+      <td>密码</td>
+      <td><input type="password" name="password" id="password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="right"><input type="button" value="提交" onclick="doSubmit();"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

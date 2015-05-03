@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>用户信息</title>
+  <script language="JavaScript"><!--
+    var mWin = new Object();
+    function doOpenWin() {
+      if (!mWin.win || (mWin.win && mWin.win.closed)) 
+       mWin.win = window.open('ch7_15_popup.htm');
+      else 
+       mWin.win.focus();
+    }
+    // 当弹出窗口时，底部窗口的所有元素都无效
+    function disableForms() {
+    	 for (var h = 0; h < frames.length; h++) 
+    	   frames[h].document.forms[i].disabled = true;
+    }
+    // 当弹出窗口关闭时，底部窗口的所有元素都恢复使用
+    function enableForms() {
+    	 for (var h = 0; h < frames.length; h++) {
+    	   for (var i = 0; i < frames[h].document.forms.length; i++) 
+    	     frames[h].document.forms[i].disabled = false;
+    	 }
+    }
+    function blockEvents() {
+    	disableForms();
+    	window.onfocus = checkModal;
+    }
+    function unblockEvents() {
+    	enableForms();
+    }
+    // 如果已经打开了弹出窗口，当用户点击底窗口时，总是聚焦弹出窗口
+    function checkModal() {
+    	if (mWin.win && !mWin.win.closed) {
+    		mWin.win.focus();
+    	}
+ }
+  //--></script>
+</head>
+<body>
+  <h2>用户信息</h2>
+  <table>
+    <tr>
+      <td>用户名:</td>
+      <td>administrator</td>
+    </tr>
+    <tr>
+      <td>权限级别:</td>
+      <td>All</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="right"><input type="button" value="编辑"  onclick="doOpenWin();"</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="right"><a href="mailto:admin@test.com">联系我们</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

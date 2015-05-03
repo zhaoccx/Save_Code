@@ -1,0 +1,45 @@
+<html>
+<head>
+<script language="JavaScript"><!--
+  function changeButton(flag) {
+    var buttonObj = document.getElementById("myButton");
+    if (flag==1) {
+      buttonObj.style.backgroundColor = "lightBlue";
+      buttonObj.style.color = "black";
+      buttonObj.style.cursor = "pointer";
+    }
+    else {
+      buttonObj.style.backgroundColor = "darkBlue";
+      buttonObj.style.color = "white";
+      buttonObj.style.cursor = "default";
+    }
+  }
+  function display() {
+    var titleObj = document.getElementById("titleBar");
+    var buttonObj = document.getElementById("myButton");
+    if (titleObj.style.display!="block") {
+      titleObj.style.display = "block";
+      buttonObj.value= "隐藏";
+    }
+    else {
+      titleObj.style.display = "none";
+      buttonObj.value= "显示";
+    }
+  }
+--> </script>
+<style>
+  #myButton {
+    background-color:darkBlue; border:1px outset;color:white;
+  }
+  #titleBar {
+    display:none;
+  }
+</style>
+</head>
+<body>
+<h1 id="titleBar">这是一个测试标题</h1>
+<div style="margin-top:10px;">
+  <input id="myButton" type="button" value="显示"  onclick="display();" onmouseover="changeButton(1)" onmouseout="changeButton(0)">
+</div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<html>
+<head>
+ <title>学生成绩输入系统</title>
+<script language = "JavaScript" >
+<!--
+  var emails = new Object();
+  emails["001"]="zxs@hotmail.com"
+  emails["002"]="lxs@yahoo.com"
+  emails["003"]="cxx@gmail.com"
+  emails["004"]="wbb@hotmail.com"
+  var errMsg = "";
+
+  function doSelect() {
+    var selected = document.mainForm.nameList.selectedIndex;
+	  var selectedValue = document.mainForm.nameList.options[selected].value;
+	  var selectedText = document.mainForm.nameList.options[selected].text;
+    document.images["studentImage"].src = selectedValue + ".gif";
+    document.links[0].href="emailto:"+emails[selectedValue];
+    document.title = "学生成绩输入系统 - " + selectedText
+  }
+  function clearAll() {
+   document.mainForm.nameList.selectedIndex=-1;
+   document.mainForm.chinese.value="";
+   document.mainForm.math.value="";
+   document.mainForm.optSubject[0].click();
+   document.mainForm.another.value="";
+   document.mainForm.gym.value="";
+  }
+  function checkRequired(form, name,label) {
+   if (form[name].value=="")
+     errMsg += '请输入"'+label+'"\n';
+	}
+	function isScore(s) {
+	  for (var i = 0; i < s.length; i++){
+      var c = s.charAt(i);
+      if (((c < "0") || (c > "9"))) return false;
+	  }
+	  if (parseInt(s)>100) return false;
+	  return true;
+	}
+	function checkScore(form,name,label) {
+	  if (form[name].value.length>0 && !isScore(form[name].value))
+      errMsg += '输入"'+label+'"无效\n';
+	}
+	function checkGym() {
+	  var gymScore = document.mainForm["gym"].value;
+	  var isValidString = true;
+	  if (gymScore.length>0) {
+	  	if (gymScore.length!=1) isValidString = false;
+		  var validChars = "abcdef";
+		  var c = gymScore.toLowerCase();
+      if (validChars.indexOf(c) == -1)
+		       isValidString = false;
+	  }
+	  if (!isValidString)
+      errMsg += '输入"体育"无效\n';
+	}
+  function doSubmit() {
+    var form = document.mainForm;
+    checkRequired(form,"nameList","学生姓名");
+    checkRequired(form,"chinese","语文");
+    checkScore(form,"chinese","语文");
+    checkRequired(form,"math","数学");
+    checkScore(form,"math","数学");
+    checkRequired(form,"another","历史或常识");
+    checkScore(form,"another","历史或常识");
+    checkRequired(form,"gym","体育");
+    checkGym();
+    if (errMsg.length>0) {
+    	alert(errMsg);
+    	errMsg="";
+    	return false;
+    }
+    else 
+     document.mainForm.submit();
+    
+  }
+ //-->
+ </script>
+</head>
+<body onload="clearAll();">
+<b>学生成绩输入系统</b>
+<form name="mainForm">
+<table style="font-size:14px;">
+　<tr><td colspan="2">学生名单</td></tr>
+  <tr>
+    <td>
+      <select name="nameList" size="6" style="width:100px" onchange="doSelect();">
+        <option value="001">张小山</option>
+        <option value="002">李小石</option>
+        <option value="003">陈休休</option>
+        <option value="004">王北北</option>
+      </select>
+    </td>
+    <td>
+      <img src="blank.gif" name="studentImage">
+    </td>
+  </tr>
+  <tr>
+    <td>联系方式:</td>
+    <td><a href="#" name="email">电子邮件</a></td>
+  </tr>
+  <tr>
+    <td>语文:</td>
+    <td><input type="text" name="chinese"></td>
+  </tr>
+  <tr>
+    <td>数学:</td>
+    <td><input type="text" name="math"></td>
+  </tr>
+  <tr>
+    <td><input type="radio" name="optSubject" checked>历史:<br>
+<input type="radio" name="optSubject">常识:
+    </td>
+    <td><input type="text" name="another"></td>
+  </tr>
+  <tr>
+    <td>体育:</td>
+    <td><input type="text" name="gym"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value=" 提交 " onclick="doSubmit();"></td>
+    <td>&nbsp</td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

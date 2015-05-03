@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>计算TEXTAREA的字符数</title>
+<script  language = "JavaScript" >
+<!--
+  function countChars() {
+    var s = document.getElementById("description").value;
+    // 如果字串长度超过指定个数，截取字串
+    if (!isMaxString(s,100)) document.getElementById("description").value = s.substr(0,100);
+    document.getElementById("count").innerHTML = document.getElementById("description").value.length;
+  }
+  
+  /* 检查字串长度是否超出指定的个数  */
+  function isMaxString(inputString,count) {
+    if (inputString.length > count) return false;
+    else return true;
+  }
+//-->
+</script>
+</head>
+<body>
+  <table>
+    <tr>
+      <td width="250">请输入文字说明</td>
+      <td id="count" align="right"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><textarea id="description" style="width:300px;height:100px" onkeyup="countChars();"></textarea></td>
+    </tr>
+  </table>
+</body>
+</html>

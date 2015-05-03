@@ -1,0 +1,129 @@
+<html>
+<head>
+<script language = "JavaScript" >
+<!--
+ var state = new Array(50);
+ var len = state.length;
+　/* 初始化数组 */
+  state[0]="ALABAMA";
+  state[1]="ALASKA";
+  state[2]="ARIZONA";
+  state[3]="ARKANSAS";
+  state[4]="CALIFORNIA";
+  state[5]="COLORADO";
+  state[6]="CONNECTICUT";
+  state[7]="DELAWARE";
+  state[8]="FLORIDA";
+  state[9]="GEORGIA";
+  state[10]="HAWAII";
+  state[11]="IDAHO";
+  state[12]="ILLINOIS";
+  state[13]="INDIANA";
+  state[14]="IOWA";
+  state[15]="KANSAS";
+  state[16]="KENTUCKY";
+  state[17]="LOUISIANA";
+  state[18]="MAINE";
+  state[19]="MARYLAND";
+  state[20]="MASSACHUSETTS";
+  state[21]="MICHIGAN";
+  state[22]="MINNESOTA";
+  state[23]="MISSISSIPPI";
+  state[24]="MISSOURI";
+  state[25]="MONTANA";
+  state[26]="NEBRASKA";
+  state[27]="NEVADA";
+  state[28]="NEW HAMPSHIRE";
+  state[29]="NEW JERSEY";
+  state[30]="NEW MEXICO";
+  state[31]="NEW YORK";
+  state[32]="NORTH CAROLINA";
+  state[33]="NORTH DAKOTA";
+  state[34]="OHIO";
+  state[35]="OKLAHOMA";
+  state[36]="OREGON";
+  state[37]="PENNSYLVANIA";
+  state[38]="RHODE ISLAND";
+  state[39]="SOUTH CAROLINA";
+  state[40]="SOUTH DAKOTA";
+  state[41]="TENNESSEE";
+  state[42]="TEXAS";
+  state[43]="UTAH";
+  state[44]="VERMONT";
+  state[45]="VIRGINIA";
+  state[46]="WASHINGTON";
+  state[47]="WEST VIRGINIA";
+  state[48]="WISCONSIN";
+  state[49]="WYOMING";
+ var sr = Math.floor(Math.random() * len);
+ var answer = state[sr]; 
+
+ /* 初始化猜的次数 */
+ var tries = 0;
+ var startTime = new Date();
+ var endTime = "";
+
+ function guessit()
+ {
+   var guess = document.mForm.guess.value;
+   if (guess.toUpperCase() == answer)	{
+     endTime = new Date();
+     var diff = diffTime(startTime,endTime);
+     var msg = ""; 
+     if (diff<60)
+       msg = "你用了 " + diff + " 秒";
+     else 
+       msg = "不过你用了太长的时间";
+     alert("回答正确! 州名是 " + answer + ", " + msg);
+		 newGame();
+   }
+   tries++;
+   switch(tries)
+   {
+     case 1:
+	     hint.innerHTML = "第一次提示：州名的开始字母是 " + answer.charAt(0);
+	     break;
+     case 2:
+	     hint.innerHTML = "第二次提示：州名的结束字母是 " + answer.charAt(answer.length - 1);
+	     break;
+     case 3:
+	     hint.innerHTML = "第三次提示：州名有 " + answer.length + " 个字母";
+	     break;
+     case 4:
+	     hint.innerHTML = "最后一次提示：州名的第三个字母是 " + answer.charAt(2);
+	     break;
+     default:
+	     hint.innerHTML = "没有提示了";
+   }
+   if (tries == 6) {
+	   if (confirm("对不起! 州名是 " + answer + "\n还想再玩吗?"))
+			newGame();
+   }
+ }  
+ function clearBox()
+ {
+   document.mForm.guess.value = "";
+   hint.innerHTML = "输入你的答案，然后按回车键:";
+   document.mForm.guess.focus();  // 将光标聚集在文本框中
+ }
+ function newGame()
+ {
+   location.reload();	// 重新刷新网页
+ }
+ function diffTime(from,to) {;
+	 var diffTime = parseInt((to - from) / 1000);
+	 return diffTime;
+ }
+//-->
+</script>
+</head>
+<body onload="clearBox();">
+	<h3>猜美国州名游戏</h3>
+	<form name="mForm" method="post" onsubmit="guessit();return false;">
+		<div id="hint">输入你的答案，然后按回车键:</div>
+		<div><input type="text" name="guess"></div>
+		<br>
+		<div><input type="button" value="重玩" onClick=newGame()></div>
+	</form>
+</body>
+</html>

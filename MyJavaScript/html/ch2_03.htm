@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>表单校验</title>
+<script  language = "JavaScript" >
+<!--
+  var errorMessage = "";  // 全局变量
+
+  /* 用于校验用户是否输入值的函数
+参数：  s - 用户输入的值
+label - 输入的域名   */
+  function checkRequired ( s , label )  {		
+    if (s == "" ) 
+      errorMessage += ' 请输入 "' + label + '".\n';
+  }
+
+  /* 用于表单校验的函数。
+     如果全局变量errorMessage不为空，则显示出错信息  */
+  function doValidate()  {
+
+    errorMessage="";
+
+    var sUsername = document.userForm.username.value;
+    var sPassword = document.userForm.password.value;
+
+    // 调用"校验用户是否输入值"的函数
+    checkRequired( sUsername, "用户名" ); 
+    checkRequired( sPassword, "密码" );
+
+    if  ( errorMessage != "" ) {
+      alert(errorMessage);
+      return false;
+    }
+    else 
+      return true;
+    }
+
+  /*  用于"提交"按钮的处理事件函数  */
+  function doSubmit()  {
+    if ( !doValidate() )  return;
+    alert( "提交表单成功" );
+  }
+//-->
+</script>
+</head>
+<body>
+  <form name="userForm">
+    <div>
+      用户名<input type="text" name="username" id="username" size="8">
+</div>
+    <div>
+密码<input type="password" name="password" id="password" size="8">
+    </div>
+    <div> 
+      <input type="button" value="提交" onclick="doSubmit();">  
+</div>
+  </form>
+</body>
+</html>

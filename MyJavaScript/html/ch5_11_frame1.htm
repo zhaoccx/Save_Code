@@ -1,0 +1,31 @@
+<html><head>
+<script language="JavaScript"><!--
+  function openInFrame() {
+    parent.frame2.location.href = window.document.forms[0].txtUrl.value;
+  }
+  function clearFrame() {
+    parent.frame2.location.href = "about:blank";
+  }  
+  function writeFrame() {
+    parent.frame2.document.open();
+    parent.frame2.document.write('这是从上部框架写下来的...');
+    parent.frame2.document.close();
+  }
+  function drawImage(imgName) {
+    var s = document.images[imgName].src;
+    parent.frame2.document.open();
+    parent.frame2.document.write('<img src="'+s+'">');
+    parent.frame2.document.close();
+  }
+//--></script></head>
+<body>
+  <form>
+    URL地址: <input type="text" name="txtUrl">
+    <input type="button" value="显示网页" onClick="openInFrame();">
+    <input type="button" value="清空网页" onClick="clearFrame();">
+    <input type="button" value="向网页写文字" onClick="writeFrame();">
+    <a href="javascript:drawImage('image1');"><img src="images/base-ball.jpg" height="28" name="image1"></a>
+    <a href="javascript:drawImage('image2');"><img src="images/bear.jpg" height="28" name="image2"></a>
+  </form>
+</body>
+</html>

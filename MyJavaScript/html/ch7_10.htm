@@ -1,0 +1,22 @@
+<script>
+function getObj(id) {
+    return document.getElementById(id);
+}
+
+function show(id) {
+  getObj(id).style.display="block"; // getObj()函数见示例7－1
+}
+
+function hide(id) {
+  getObj(id).style.display="none";
+}
+
+function toggleShow(id) {
+  if (getObj(id).style.display == "none")
+    show(id);
+  else
+    hide(id);
+}</script>
+
+<input type="checkBox" onclick="toggleShow('content')">隐藏
+<div id="content">这里放的是所要显示或隐藏的内容</div>

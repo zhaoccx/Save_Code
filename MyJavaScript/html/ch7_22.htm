@@ -1,0 +1,40 @@
+<html>
+<head>
+<style type="text/css">
+#content {position:absolute; left:0px; top:150px; 
+  width:100%; font-family:Impact; text-align:center; 
+  color:#336699; overflow:hidden;
+}
+</style>
+<script type="text/javascript"><!--
+var s=0;
+var i=0;
+var m=70;
+var d=2000;
+var msg=new Array("Welcome to","google.com","google search",
+      "google picture","google tools","and much more...");
+function changeMsg(){
+	if (i>=msg.length){
+		location.href=('http://www.google.com');
+		return true;
+	}
+	txt=document.getElementById("content");
+	txt.innerHTML=msg[i]; 
+	s=0;
+	zoomTxt();
+	i++;
+	setTimeout("changeMsg()", d);
+}
+function zoomTxt(){
+	if(s<m){
+		txt.style.fontSize = s;
+		s+=5;
+		setTimeout("zoomTxt()", 30);
+	}
+}
+//--></script>
+</head>
+<body onload="changeMsg();">
+<div id="content"></div>
+</body>
+</html>

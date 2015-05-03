@@ -1,0 +1,22 @@
+<script language="JavaScript">  <!--
+function fillString(inputString,n) {   
+  
+  //ret为返回字串变量
+  var ret = inputString;
+  var count = 0;
+  while (count<n) {
+    //从输入的字串中得到一个随机字符，如果不是"_"，则用"_"替换之
+    var rnum = Math.floor(Math.random() * inputString.length);
+    if (ret.substring(rnum,rnum+1)!="_")  {
+      ret = ret.substr(0,rnum)+"_"+ret.substr(rnum+1);
+      count++;
+    }
+  }
+  return ret;
+}
+
+//测试拼写单词函数
+document.write(fillString("instruction",3)+"<br>");
+document.write(fillString("communication",5)+"<br>");
+document.write(fillString("study",3)+"<br>");
+//-->  </script>

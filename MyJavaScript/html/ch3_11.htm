@@ -1,0 +1,92 @@
+<html>
+<head>
+<script language="JavaScript">  <!--
+
+// 将示例3－8改写成函数currencyFormat
+function currencyFormat(inputString) {  // 添加千分位号并保留小数2位
+  if (String(inputString).indexOf(',')>-1) return inputString;
+  var floatNumber = parseFloat(inputString);
+  if (isNaN(floatNumber)) return inputString;
+
+  var strIt = String(floatNumber.toFixed(2));
+  var loc = strIt.indexOf('.')
+  var left = strIt.substring(0,loc);
+  var right = strIt.substring(loc);
+  var first = left.length%3;
+  var ret = "";
+  var pos = first;
+  ret = ret + left.substring(0,pos);
+  while (pos+3<=left.length) {
+    if (ret!="") ret = ret + ",";
+    ret = ret + left.substring(pos,pos+3);
+    pos = pos + 3;
+  }
+  return ret+right;
+}
+
+// 移去千分位号
+function noCurrencyFormat(inputString) {    
+  var s = String(inputString);
+  var arrStr = s.split(',');          // 以','为分隔符将数存到数组中
+  var ret = '';
+  for (var i=0; i< arrStr.length;i++) {
+    ret = ret + arrStr [i];
+  }
+  return ret;
+}
+
+// 保留小数2位
+function percentFormat(inputString) {  
+  var floatNumber = parseFloat(inputString);
+  if (isNaN(floatNumber)) return;
+  return floatNumber.toFixed(2);
+}
+
+// 计算并显示使用额
+function getAmount() {							    
+  var sTotal = document.mainForm.total.value;       // 总额数
+  var sPercent = document.mainForm.percent.value;  // 百分数
+  if (!isFloat(sPercent)) {						    // 检测用户是否输入浮点数
+    alert("Percent error.");
+    document.mainForm.percent.focus();
+    return;
+  }
+  // 计算使用额
+  var sAmount = parseFloat(noCurrencyFormat(sTotal)) * parseFloat(sPercent) /100;
+  // 格式化使用额
+  document.mainForm.amount.value = currencyFormat(sAmount);
+  // 格式化百分数
+  document.mainForm.percent.value = percentFormat(sPercent);
+}
+
+function getPercent() {								// 计算并显示百分数
+  var sTotal = document.mainForm.total.value; 		// 总额数
+  var sAmount = document.mainForm.amount.value;     	// 使用额
+  if (!isFloat(sAmount)) {						    	// 检测用户是否输入浮点数
+    alert("Amount error.");
+    document.mainForm.amount.focus();
+    return;
+  }
+  // 计算百分数
+  var sPercent = 100 * parseFloat(noCurrencyFormat(sAmount)) / parseFloat(noCurrencyFormat(sTotal));
+  // 格式化百分数
+  document.mainForm.percent.value = percentFormat(sPercent);
+  // 格式化使用额
+  document.mainForm.amount.value = currencyFormat(sAmount);
+}
+
+function isFloat(inputString) {
+  // ....
+  return true;
+}
+//-->  
+</script>
+</head>
+<body>
+  <form name="mainForm">
+    <div>总额(￥): <input type="text" name="total" value="10,000.00" readonly></div>
+    <div>百分数(%):<input type="text" name="percent" onblur="getAmount()"></div>
+    <div>使用额(￥):<input type="text" name="amount" onblur="getPercent()"></div>
+  </form>
+</body>
+</html>
