@@ -55,4 +55,14 @@ public class Book {
 	public void setLanguage(String language) {
 		this.language = language;
 	}
+
+	public Book(String id, String name, String author, String year, String price, String language) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.author = author;
+		this.year = year;
+		this.price = price;
+		this.language = language;
+	}
 }
