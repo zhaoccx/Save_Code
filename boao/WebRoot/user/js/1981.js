@@ -1,0 +1,1 @@
+$('.tqspan').html("多云 24 ~ 18℃ <a target='_blank' rel='external nofollow' href='http://www.weather.com.cn/html/weather/101280601.shtml'>详细&raquo;</a>");

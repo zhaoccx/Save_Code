@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boao.study.mapper.TblCourseMapper">
+	<resultMap id="BaseResultMap" type="com.boao.study.model.TblCourse">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="category" property="category" jdbcType="VARCHAR" />
+		<result column="introduce" property="introduce" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="selectByCategory" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_course
+		<if test="category != null and category != ''">
+			where
+			category = #{category}
+		</if>
+	</select>
+
+	<select id="countByCategory" resultType="int">
+		select count(0)
+		from tbl_course
+		<if test="category != null and category != ''">
+			where
+			category = #{category}
+		</if>
+	</select>
+
+	<sql id="Base_Column_List">
+		id, subject, category, introduce
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_course
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		tbl_course
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.boao.study.model.TblCourse">
+		insert into tbl_course (id,
+		subject, category,
+		introduce)
+		values (#{id,jdbcType=INTEGER},
+		#{subject,jdbcType=VARCHAR},
+		#{category,jdbcType=VARCHAR},
+		#{introduce,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.boao.study.model.TblCourse">
+		insert into tbl_course
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="subject != null">
+				subject,
+			</if>
+			<if test="category != null">
+				category,
+			</if>
+			<if test="introduce != null">
+				introduce,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="subject != null">
+				#{subject,jdbcType=VARCHAR},
+			</if>
+			<if test="category != null">
+				#{category,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce != null">
+				#{introduce,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.boao.study.model.TblCourse">
+		update tbl_course
+		<set>
+			<if test="subject != null">
+				subject = #{subject,jdbcType=VARCHAR},
+			</if>
+			<if test="category != null">
+				category = #{category,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce != null">
+				introduce = #{introduce,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.boao.study.model.TblCourse">
+		update tbl_course
+		set subject = #{subject,jdbcType=VARCHAR},
+		category =
+		#{category,jdbcType=VARCHAR},
+		introduce = #{introduce,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+</mapper>

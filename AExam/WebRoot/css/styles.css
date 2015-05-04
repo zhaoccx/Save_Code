@@ -1,0 +1,31 @@
+.style3 {
+	color: #6666CC;
+	font-size: 12px;
+}
+
+.style1 {
+	color: #FF0000
+}
+
+.abc {
+	display: none;
+}
+
+.style5 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #000000;
+	overflow:hidden;
+}
+label{
+	font-size: 20px;color: red;
+}
+table{
+	
+	cellpadding:"0";
+	cellspacing:"0";
+}
+div {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 22px;
+}
+a{FONT-SIZE: 18px; COLOR: #000000; TEXT-DECORATION: none;text-decoration: none}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boao.article.mapper.ViewAssistMapper" >
+  <resultMap id="BaseResultMap" type="com.boao.article.model.ViewAssist" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="subject" property="subject" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="kind" property="kind" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="body" property="body" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <select id="selectByKindAndCategory" resultMap="BaseResultMap" parameterType="map">
+  	select * from view_assist
+  	<where>
+  		<if test="kind != null">
+  			kind = #{kind} 
+  		</if>
+  		<if test="category != null">
+  			and category = #{category}
+  		</if>
+  		
+  	</where>
+  	order by create_date desc
+  </select>
+  <select id="countByKindAndCategory" resultType="int"  parameterType="map">
+  	select count(*) from view_assist
+  	<where>
+  		<if test="kind != null">
+  			kind = #{kind} 
+  		</if>
+  		<if test="category != null">
+  			and category = #{category}
+  		</if>
+  	</where>
+  		order by create_date desc
+  </select>
+	<select id="selectById" resultMap="BaseResultMap" >
+		select * from view_assist where id = #{id}
+	</select>
+</mapper>

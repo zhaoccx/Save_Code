@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boao.article.mapper.TblArticleMapper" >
+  <resultMap id="BaseResultMap" type="com.boao.article.model.TblArticle" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="category" property="category" jdbcType="INTEGER" />
+    <result column="subject" property="subject" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="clicks" property="clicks" jdbcType="INTEGER" />
+    <result column="up_clicks" property="upClicks" jdbcType="INTEGER" />
+    <result column="down_clicks" property="downClicks" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="summary" property="summary" jdbcType="VARCHAR" />
+    <result column="key_words" property="keyWords" jdbcType="VARCHAR" />
+    <result column="reccomend_category" property="reccomendCategory" jdbcType="VARCHAR" />
+    <result column="reccomend_date" property="reccomendDate" jdbcType="DATE" />
+    <result column="page_url" property="pageUrl" jdbcType="VARCHAR" />
+    <result column="is_essence" property="isEssence" jdbcType="INTEGER" />
+    <result column="body" property="body" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, category, subject, logo, source, clicks, up_clicks, down_clicks, create_date, 
+    update_date, summary, key_words, reccomend_category, reccomend_date, page_url, is_essence, body
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_article
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_article
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.boao.article.model.TblArticle" useGeneratedKeys="true" keyProperty="id" >
+    insert into tbl_article (id, category, subject, 
+      logo, source,
+      clicks, up_clicks, down_clicks, 
+      create_date, update_date, summary, 
+      key_words, reccomend_category, reccomend_date, 
+      page_url, is_essence, body
+      )
+    values (#{id,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, #{subject,jdbcType=VARCHAR}, 
+      #{logo,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{clicks,jdbcType=INTEGER}, #{upClicks,jdbcType=INTEGER}, #{downClicks,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{summary,jdbcType=VARCHAR}, 
+      #{keyWords,jdbcType=VARCHAR}, #{reccomendCategory,jdbcType=VARCHAR}, #{reccomendDate,jdbcType=DATE}, 
+      #{pageUrl,jdbcType=VARCHAR}, #{isEssence,jdbcType=INTEGER}, #{body,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+ 
+  <update id="updateByPrimaryKeySelective" parameterType="com.boao.article.model.TblArticle" >
+    update tbl_article
+    <set >
+      <if test="category != null" >
+        category = #{category,jdbcType=INTEGER},
+      </if>
+      <if test="subject != null" >
+        subject = #{subject,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="clicks != null" >
+        clicks = #{clicks,jdbcType=INTEGER},
+      </if>
+      <if test="upClicks != null" >
+        up_clicks = #{upClicks,jdbcType=INTEGER},
+      </if>
+      <if test="downClicks != null" >
+        down_clicks = #{downClicks,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="keyWords != null" >
+        key_words = #{keyWords,jdbcType=VARCHAR},
+      </if>
+      <if test="reccomendCategory != null" >
+        reccomend_category = #{reccomendCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="reccomendDate != null" >
+        reccomend_date = #{reccomendDate,jdbcType=DATE},
+      </if>
+      <if test="pageUrl != null" >
+        page_url = #{pageUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isEssence != null" >
+        is_essence = #{isEssence,jdbcType=INTEGER},
+      </if>
+      <if test="body != null" >
+        body = #{body,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- START SNIPPET: xworkSample -->
+<struts>
+	
+	<package name="indexpack" extends="struts-default" namespace="/">
+		<action name="manager*Action" class="managerActionSpring" method="{1}">
+			<result>manager.jsp</result>
+			<result name="teacher">teacherquery.jsp</result>
+			<result name="student">studentquery.jsp</result>
+			<result name="fail">index.jsp</result>
+		</action>
+
+		
+		<action name="student*Action" class="studentActionSpring" method="{1}">
+			<result>studentshow.jsp</result>
+			<result name="fail">index.jsp</result>
+			<result name="examss">exam.jsp</result>
+			<result name="test">test.jsp</result>
+			<result name="scored">studentscore.jsp</result>
+		</action>
+		
+		<action name="teacher*Action" class="teacherActionSpring" method="{1}">
+			<result>teacher.jsp</result>
+			<result name="fail">index.jsp</result>
+		</action>
+	</package>
+	
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.custom.i18n.resources" value="message"></constant>
+	
+</struts>

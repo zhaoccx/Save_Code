@@ -1,0 +1,132 @@
+﻿// JavaScript Document
+
+
+
+
+<script src="http://www.liebiao.com/js/fd.js"></script>
+<script src="http://www.liebiao.com/js/thickbox.js"></script>
+<script src="http://www.liebiao.com/js/jquery.DOMWindow.js" ></script>
+<script src="http://www.liebiao.com/js/mycenter.js" ></script>
+<script>
+	$("#signinstate").click(function(){
+		var a = $(this).attr('class');
+		if(a == 'qd-btn'){
+			$.ajax({
+				type: "GET",
+				url: "/cgi-bin/ajax/check_in.php?a="+ new Date().getTime(),
+				async: false,
+				success: function(data){
+					if(data == '签到成功'){
+						$("#signinstate").removeClass();
+						$("#signinstate").addClass("yqd-btn");
+						var point = $("#my_point").html();
+						var times = $("#my_times").html();
+						point = parseInt(point);
+						times = parseInt(times);
+						point += 5;
+						times++;
+						$("#my_point").html(point);
+						$("#totalPoint").html(point);
+						$("#my_times").html(times);
+						$("#signinstate").unbind('click');
+					}
+					if(data == '今日已签到！'){
+						$("#signinstate").removeClass();
+						$("#signinstate").addClass("yqd-btn");
+					}
+				}
+			});
+		}
+	});
+
+						$('#signinstate').openDOMWindow({
+				eventType: 'click',
+				height:210,
+				width:360,
+				positionTop:100,
+				positionLeft:100,
+				overlayOpacity:25,
+				windowSourceID:'#qiandaochenggong-tanchu',
+				showClose:1,
+				windowTitle:'签到领积分'
+			});
+			
+	$('.thickbox').openDOMWindow({
+		positionType:'centered',
+		eventType: 'click',
+		height:350,
+		width:570,
+		positionTop:100,
+		positionLeft:100,
+		overlayOpacity:20,
+		windowSource:'iframe',
+		windowHTTPType:'get',
+		windowTitle:'申诉',
+		showClose:1
+	});
+    $('.clicks_history').openDOMWindow({
+        positionType:'centered',
+        eventType: 'click',
+        height:340,
+        width:550,
+        positionTop:100,
+        positionLeft:100,
+        overlayOpacity:20,
+        windowSource:'ajax',
+        windowHTTPType:'get'
+    });
+	$('#reward').openDOMWindow({
+		positionType:'centered',
+		eventType: 'click',
+		height:330,
+		width:480,
+		positionTop:100,
+		positionLeft:100,
+		overlayOpacity:20,
+		windowSource:'ajax',
+		windowHTTPType:'get'
+	});
+	function getReward(){
+		var d = new Date();
+		$.get("/cgi-bin/ajax/reward.php?uid=892096&a="+d.getMilliseconds(), function(data){if(data) {$('#tanchu-con').html(data);}});
+	}
+</script>
+<script>
+	$(function(){
+		$.fn.extend({
+			Scroll:function(opt,callback){
+				//参数初始化
+				if(!opt) var opt={};
+				var _this=this.eq(0).find("ul:first");
+				var lineH=_this.find("li:first").height(), //获取行高
+						line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,1), //每次滚动的行数，默认为一屏，即父容器高度
+						speed=opt.speed?parseInt(opt.speed,10):500, //卷动速度，数值越大，速度越慢（毫秒）
+						timer=opt.timer?parseInt(opt.timer,10):1000; //滚动的时间间隔（毫秒）
+				if(line==0) line=1;
+				var upHeight=0-line*lineH;
+				//滚动函数
+				scrollUp=function(){
+					_this.animate({
+						marginTop:upHeight
+					},speed,function(){
+						for(i=1;i<=line;i++){
+							_this.find("li:first").appendTo(_this);
+						}
+						_this.css({marginTop:0});
+					});
+				}
+				//鼠标事件绑定
+				_this.hover(function(){
+					clearInterval(timerID);
+				},function(){
+					timerID=setInterval("scrollUp()",timer);
+				}).mouseout();
+			}
+		});
+		var scrolllength = $("#noticeScroll").find("li").length;
+		if( scrolllength > 1 ){
+			$("#noticeScroll").Scroll({line:1,speed:1000,timer:4000});
+		}
+	});
+
+</script>

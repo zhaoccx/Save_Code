@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boao.article.mapper.TblArticleCategoryMapper">
+	<resultMap id="BaseResultMap" type="com.boao.article.model.TblArticleCategory">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="kind" property="kind" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="INTEGER" />
+		<result column="subject" property="subject" jdbcType="VARCHAR" />
+		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="logo" property="logo" jdbcType="VARCHAR" />
+		<result column="remark" property="remark" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, kind, subject,author, create_date, logo, remark
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_article_category
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		tbl_article_category
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.boao.article.model.TblArticleCategory"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tbl_article_category
+		(id, kind, subject,
+		create_date, logo, remark
+		)
+		values
+		(#{id,jdbcType=INTEGER}, #{kind,jdbcType=VARCHAR},
+		#{subject,jdbcType=VARCHAR},
+		#{createDate,jdbcType=TIMESTAMP},
+		#{logo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.boao.article.model.TblArticleCategory"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into tbl_article_category
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="kind != null">
+				kind,
+			</if>
+			<if test="subject != null">
+				subject,
+			</if>
+			<if test="author">
+				author,
+			</if>
+			<if test="createDate != null">
+				create_date,
+			</if>
+			<if test="logo != null">
+				logo,
+			</if>
+			<if test="remark != null">
+				remark,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="kind != null">
+				#{kind,jdbcType=VARCHAR},
+			</if>
+			<if test="subject != null">
+				#{subject,jdbcType=VARCHAR},
+			</if>
+			<if test="author != null">
+				#{author}
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="logo != null">
+				#{logo,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<!-- 下面是我自定义的sql -->
+	<select id="selectByKind" resultMap="BaseResultMap"
+		parameterType="String">
+		select
+		<include refid="Base_Column_List" />
+		from tbl_article_category
+		<if test="kind != null ">
+			where kind = #{kind,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="countByKind" resultType="int" parameterType="String">
+		select count(*) from tbl_article_category
+		<if test="kind != null">
+			where kind = #{kind,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<update id="updateSelective" parameterType="com.boao.article.model.TblArticleCategory">
+		update tbl_article_category
+		<set>
+			<if test="subject != null">
+				subject = #{subject},
+			</if>
+			<if test="logo != null">
+				logo = #{logo},
+			</if>
+			<if test="kind != null">
+				kind = #{kind},
+			</if>
+			<if test="remark != null">
+				remark = #{remark},
+			</if>
+		</set>
+		where id = #{id}
+	</update>
+
+	<select id="selectCategoryByKind" resultType="string" >
+		select category from view_assist 
+		<if test="kind != null">
+			where kind = #{kind}
+			
+		</if>
+		 group by category
+		 order by category
+	</select>
+</mapper>

@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boao.user.mapper.TblUserMapper" >
+  <resultMap id="BaseResultMap" type="com.boao.user.model.TblUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="login_account" property="loginAccount" jdbcType="VARCHAR" />
+    <result column="login_password" property="loginPassword" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="activate" property="activate" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="introducer" property="introducer" jdbcType="VARCHAR" />
+    <result column="login_times" property="loginTimes" jdbcType="INTEGER" />
+    <result column="last_login_date" property="lastLoginDate" jdbcType="TIMESTAMP" />
+    <result column="boao_score" property="boaoScore" jdbcType="INTEGER" />
+    <result column="boao_coint" property="boaoCoint" jdbcType="DECIMAL" />
+    <result column="pwd_question" property="pwdQuestion" jdbcType="VARCHAR" />
+    <result column="pwd_answer" property="pwdAnswer" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="photo" property="photo" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="mobile_phone" property="mobilePhone" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="msn" property="msn" jdbcType="VARCHAR" />
+    <result column="recieve_msg" property="recieveMsg" jdbcType="INTEGER" />
+    <result column="recieve_notify" property="recieveNotify" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, login_account, login_password, category, email, activate, create_date, introducer, 
+    login_times, last_login_date, boao_score, boao_coint, pwd_question, pwd_answer, nick_name, 
+    photo, province, city, address, unit, mobile_phone, telephone, qq, msn, recieve_msg, 
+    recieve_notify
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.boao.user.model.TblUser" >
+    insert into tbl_user (id, login_account, login_password, 
+      category, email, activate, 
+      create_date, introducer, login_times, 
+      last_login_date, boao_score, boao_coint, 
+      pwd_question, pwd_answer, nick_name, 
+      photo, province, city, 
+      address, unit, mobile_phone, 
+      telephone, qq, msn, 
+      recieve_msg, recieve_notify)
+    values (#{id,jdbcType=INTEGER}, #{loginAccount,jdbcType=VARCHAR}, #{loginPassword,jdbcType=VARCHAR}, 
+      #{category,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{activate,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{introducer,jdbcType=VARCHAR}, #{loginTimes,jdbcType=INTEGER}, 
+      #{lastLoginDate,jdbcType=TIMESTAMP}, #{boaoScore,jdbcType=INTEGER}, #{boaoCoint,jdbcType=DECIMAL}, 
+      #{pwdQuestion,jdbcType=VARCHAR}, #{pwdAnswer,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{photo,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{msn,jdbcType=VARCHAR}, 
+      #{recieveMsg,jdbcType=INTEGER}, #{recieveNotify,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boao.user.model.TblUser" >
+    insert into tbl_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="loginAccount != null" >
+        login_account,
+      </if>
+      <if test="loginPassword != null" >
+        login_password,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="activate != null" >
+        activate,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="introducer != null" >
+        introducer,
+      </if>
+      <if test="loginTimes != null" >
+        login_times,
+      </if>
+      <if test="lastLoginDate != null" >
+        last_login_date,
+      </if>
+      <if test="boaoScore != null" >
+        boao_score,
+      </if>
+      <if test="boaoCoint != null" >
+        boao_coint,
+      </if>
+      <if test="pwdQuestion != null" >
+        pwd_question,
+      </if>
+      <if test="pwdAnswer != null" >
+        pwd_answer,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="photo != null" >
+        photo,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="msn != null" >
+        msn,
+      </if>
+      <if test="recieveMsg != null" >
+        recieve_msg,
+      </if>
+      <if test="recieveNotify != null" >
+        recieve_notify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="loginAccount != null" >
+        #{loginAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null" >
+        #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="activate != null" >
+        #{activate,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="introducer != null" >
+        #{introducer,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTimes != null" >
+        #{loginTimes,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginDate != null" >
+        #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="boaoScore != null" >
+        #{boaoScore,jdbcType=INTEGER},
+      </if>
+      <if test="boaoCoint != null" >
+        #{boaoCoint,jdbcType=DECIMAL},
+      </if>
+      <if test="pwdQuestion != null" >
+        #{pwdQuestion,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdAnswer != null" >
+        #{pwdAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null" >
+        #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="recieveMsg != null" >
+        #{recieveMsg,jdbcType=INTEGER},
+      </if>
+      <if test="recieveNotify != null" >
+        #{recieveNotify,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boao.user.model.TblUser" >
+    update tbl_user
+    <set >
+      <if test="loginAccount != null" >
+        login_account = #{loginAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPassword != null" >
+        login_password = #{loginPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="activate != null" >
+        activate = #{activate,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="introducer != null" >
+        introducer = #{introducer,jdbcType=VARCHAR},
+      </if>
+      <if test="loginTimes != null" >
+        login_times = #{loginTimes,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginDate != null" >
+        last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="boaoScore != null" >
+        boao_score = #{boaoScore,jdbcType=INTEGER},
+      </if>
+      <if test="boaoCoint != null" >
+        boao_coint = #{boaoCoint,jdbcType=DECIMAL},
+      </if>
+      <if test="pwdQuestion != null" >
+        pwd_question = #{pwdQuestion,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdAnswer != null" >
+        pwd_answer = #{pwdAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="photo != null" >
+        photo = #{photo,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null" >
+        mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="msn != null" >
+        msn = #{msn,jdbcType=VARCHAR},
+      </if>
+      <if test="recieveMsg != null" >
+        recieve_msg = #{recieveMsg,jdbcType=INTEGER},
+      </if>
+      <if test="recieveNotify != null" >
+        recieve_notify = #{recieveNotify,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boao.user.model.TblUser" >
+    update tbl_user
+    set login_account = #{loginAccount,jdbcType=VARCHAR},
+      login_password = #{loginPassword,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      activate = #{activate,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      introducer = #{introducer,jdbcType=VARCHAR},
+      login_times = #{loginTimes,jdbcType=INTEGER},
+      last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
+      boao_score = #{boaoScore,jdbcType=INTEGER},
+      boao_coint = #{boaoCoint,jdbcType=DECIMAL},
+      pwd_question = #{pwdQuestion,jdbcType=VARCHAR},
+      pwd_answer = #{pwdAnswer,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      msn = #{msn,jdbcType=VARCHAR},
+      recieve_msg = #{recieveMsg,jdbcType=INTEGER},
+      recieve_notify = #{recieveNotify,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver">
+		</property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl">
+		</property>
+		<property name="username" value="scott"></property>
+		<property name="password" value="tiger"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9Dialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.exam.entity.ExChoice</value>
+				<value>com.exam.entity.ExCompletion</value>
+				<value>com.exam.entity.ExDepartment</value>
+				<value>com.exam.entity.ExManager</value>
+				<value>com.exam.entity.ExQuestion</value>
+				<value>com.exam.entity.ExRecord</value>
+				<value>com.exam.entity.ExScore</value>
+				<value>com.exam.entity.ExStudent</value>
+				<value>com.exam.entity.ExSyllabus</value>
+				<value>com.exam.entity.ExTeacher</value>
+				<value>com.exam.entity.ExTorf</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<!-- 所有的Action层bean的配置 -->
+	<bean id="studentActionSpring" class="com.exam.action.StudentAction">
+		<property name="studentBiz" ref="studentBiz"></property>
+		<property name="recordBiz" ref="recordBiz"></property>
+		<property name="scoreBiz" ref="scoreBiz"></property>
+		<property name="choiceBiz" ref="choiceBiz"></property>
+		<property name="completionBiz" ref="completionBiz"></property>
+		<property name="questionBiz" ref="questionBiz"></property>
+		<property name="torfBiz" ref="torfBiz"></property>
+	</bean>
+	<bean id="managerActionSpring" class="com.exam.action.ManagerAction">
+		<property name="managerBiz" ref="managerBiz"></property>
+		<property name="studentBiz" ref="studentBiz"></property>
+		<property name="teacherBiz" ref="teacherBiz"></property>
+		<property name="departmentBiz" ref="departmentBiz"></property>
+	</bean>
+	<bean id="teacherActionSpring" class="com.exam.action.TeacherAction">
+		<property name="teacherBiz" ref="teacherBiz"></property>
+		<property name="syllabusBiz" ref="syllabusBiz"></property>
+	</bean>
+
+
+
+
+	<!-- 所有的Biz层bean的配置 -->
+	<bean id="choiceBiz" class="com.exam.biz.impl.ChoiceBizImpl">
+		<property name="choiceDao" ref="choiceDao"></property>
+	</bean>
+	<bean id="completionBiz" class="com.exam.biz.impl.CompletionBizImpl">
+		<property name="completionDao" ref="completionDao"></property>
+	</bean>
+	<bean id="departmentBiz" class="com.exam.biz.impl.DepartmentBizImpl">
+		<property name="departmentDao" ref="departmentDao"></property>
+	</bean>
+	<bean id="managerBiz" class="com.exam.biz.impl.ManagerBizImpl">
+		<property name="managerDao" ref="managerDao"></property>
+	</bean>
+	<bean id="questionBiz" class="com.exam.biz.impl.QuestionBizImpl">
+		<property name="questionDao" ref="questionDao"></property>
+	</bean>
+	<bean id="recordBiz" class="com.exam.biz.impl.RecordBizImpl">
+		<property name="recordDao" ref="recordDao"></property>
+	</bean>
+	<bean id="scoreBiz" class="com.exam.biz.impl.ScoreBizImpl">
+		<property name="scoreDao" ref="scoreDao"></property>
+	</bean>
+	<bean id="studentBiz" class="com.exam.biz.impl.StudentBizImpl">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="syllabusBiz" class="com.exam.biz.impl.SyllabusBizImpl">
+		<property name="syllabusDao" ref="syllabusDao"></property>
+	</bean>
+	<bean id="teacherBiz" class="com.exam.biz.impl.TeacherBizImpl">
+		<property name="teacherDao" ref="teacherDao"></property>
+	</bean>
+	<bean id="torfBiz" class="com.exam.biz.impl.TorfBizImpl">
+		<property name="torfDao" ref="torfDao"></property>
+	</bean>
+	
+	
+
+	<!-- 所有的 Dao 层bean的配置 -->
+	<bean id="choiceDao" class="com.exam.dao.impl.ChoiceDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="completionDao" class="com.exam.dao.impl.CompletionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="departmentDao" class="com.exam.dao.impl.DepartmentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="managerDao" class="com.exam.dao.impl.ManagerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="questionDao" class="com.exam.dao.impl.QuestionDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="recordDao" class="com.exam.dao.impl.RecordDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="scoreDao" class="com.exam.dao.impl.ScoreDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="studentDao" class="com.exam.dao.impl.StudentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="syllabusDao" class="com.exam.dao.impl.SyllabusDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="teacherDao" class="com.exam.dao.impl.TeacherDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="torfDao" class="com.exam.dao.impl.TorfDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

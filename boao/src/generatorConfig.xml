@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	
+	
+	
+	<classPathEntry
+		location="D:\mysoft\mysql-connector-java-5.1.18\mysql-connector-java-5.1.18-bin.jar" />
+	 <context id="context1" > <commentGenerator> <property name="suppressAllComments" 
+		value="true" /> <property name="suppressDate" value="true" /> </commentGenerator> 
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/db_boao" 
+		userId="root" password="a33265" /> <javaModelGenerator targetPackage="com.boao.model" 
+		targetProject="boao" /> <sqlMapGenerator targetPackage="com.boao.mapper" 
+		targetProject="boao" /> <javaClientGenerator targetPackage="com.boao.mapper" 
+		targetProject="boao" type="XMLMAPPER" /> <table schema="" tableName="tbl_admin" 
+		enableDeleteByExample="false" enableCountByExample="false" enableSelectByExample="false" 
+		enableUpdateByExample="false" domainObjectName="TblAdmin" /> <table schema="" 
+		tableName="tbl_article_category" enableDeleteByExample="false" enableCountByExample="false" 
+		enableSelectByExample="false" enableUpdateByExample="false" domainObjectName="TblArticleCategory" 
+		/> <table schema="" tableName="tbl_article" domainObjectName="TblArticle" 
+		/> </context> 
+<!-- 	<context id="context2">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/db_boao" userId="root"
+			password="a33265" />
+		<javaModelGenerator targetPackage="com.boao.view"
+			targetProject="boao" />
+		<sqlMapGenerator targetPackage="com.boao.mapper"
+			targetProject="boao" />
+		<javaClientGenerator targetPackage="com.boao.mapper"
+			targetProject="boao" type="XMLMAPPER" />
+		<table schema="" tableName="view_assist" enableDeleteByExample="false"
+			enableCountByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false" domainObjectName="ViewAssist">
+		</table>
+	</context>
+	<context id="context3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/db_boaohaoxue" userId="root"
+			password="6625146" />
+		
+		<javaModelGenerator targetPackage="com.boao.study.model" targetProject="boao" />
+		<sqlMapGenerator targetPackage="com.boao.study.mapper"
+			targetProject="boao" />
+		<javaClientGenerator targetPackage="com.boao.study.mapper"
+			targetProject="boao" type="XMLMAPPER" /> 
+			
+			
+		<table schema="" tableName="tbl_course" enableDeleteByExample="false"
+			enableCountByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false" domainObjectName="TblCourse">
+		</table>
+		<table schema="" tableName="tbl_grade" enableDeleteByExample="false"
+			enableCountByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false" domainObjectName="TblGrade">
+		</table>
+		
+	
+	</context>	-->
+	
+	
+	
+</generatorConfiguration>

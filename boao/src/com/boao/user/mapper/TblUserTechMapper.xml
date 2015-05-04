@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.boao.user.mapper.TblUserTechMapper" >
+  <resultMap id="BaseResultMap" type="com.boao.user.model.TblUserTech" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="validate" property="validate" jdbcType="VARCHAR" />
+    <result column="validate_date" property="validateDate" jdbcType="TIMESTAMP" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="birthdate" property="birthdate" jdbcType="VARCHAR" />
+    <result column="origin" property="origin" jdbcType="VARCHAR" />
+    <result column="id_card" property="idCard" jdbcType="VARCHAR" />
+    <result column="occupation" property="occupation" jdbcType="VARCHAR" />
+    <result column="high_school" property="highSchool" jdbcType="VARCHAR" />
+    <result column="university" property="university" jdbcType="VARCHAR" />
+    <result column="majoy" property="majoy" jdbcType="VARCHAR" />
+    <result column="education" property="education" jdbcType="VARCHAR" />
+    <result column="tech_age" property="techAge" jdbcType="INTEGER" />
+    <result column="tech_style" property="techStyle" jdbcType="VARCHAR" />
+    <result column="tech_way" property="techWay" jdbcType="VARCHAR" />
+    <result column="tech_language" property="techLanguage" jdbcType="VARCHAR" />
+    <result column="tech_salary" property="techSalary" jdbcType="VARCHAR" />
+    <result column="morning" property="morning" jdbcType="VARCHAR" />
+    <result column="noon" property="noon" jdbcType="VARCHAR" />
+    <result column="night" property="night" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.boao.user.model.TblUserTechWithBLOBs" extends="BaseResultMap" >
+    <result column="subjects" property="subjects" jdbcType="LONGVARCHAR" />
+    <result column="evaluation" property="evaluation" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    user_id, validate, validate_date, real_name, gender, birthdate, origin, id_card, 
+    occupation, high_school, university, majoy, education, tech_age, tech_style, tech_way, 
+    tech_language, tech_salary, morning, noon, night
+  </sql>
+  <sql id="Blob_Column_List" >
+    subjects, evaluation
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tbl_user_tech
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tbl_user_tech
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.boao.user.model.TblUserTechWithBLOBs" >
+    insert into tbl_user_tech (user_id, validate, validate_date, 
+      real_name, gender, birthdate, 
+      origin, id_card, occupation, 
+      high_school, university, majoy, 
+      education, tech_age, tech_style, 
+      tech_way, tech_language, tech_salary, 
+      morning, noon, night, 
+      subjects, evaluation)
+    values (#{userId,jdbcType=INTEGER}, #{validate,jdbcType=VARCHAR}, #{validateDate,jdbcType=TIMESTAMP}, 
+      #{realName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{birthdate,jdbcType=VARCHAR}, 
+      #{origin,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, 
+      #{highSchool,jdbcType=VARCHAR}, #{university,jdbcType=VARCHAR}, #{majoy,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{techAge,jdbcType=INTEGER}, #{techStyle,jdbcType=VARCHAR}, 
+      #{techWay,jdbcType=VARCHAR}, #{techLanguage,jdbcType=VARCHAR}, #{techSalary,jdbcType=VARCHAR}, 
+      #{morning,jdbcType=VARCHAR}, #{noon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR}, 
+      #{subjects,jdbcType=LONGVARCHAR}, #{evaluation,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.boao.user.model.TblUserTechWithBLOBs" >
+    insert into tbl_user_tech
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="validate != null" >
+        validate,
+      </if>
+      <if test="validateDate != null" >
+        validate_date,
+      </if>
+      <if test="realName != null" >
+        real_name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="birthdate != null" >
+        birthdate,
+      </if>
+      <if test="origin != null" >
+        origin,
+      </if>
+      <if test="idCard != null" >
+        id_card,
+      </if>
+      <if test="occupation != null" >
+        occupation,
+      </if>
+      <if test="highSchool != null" >
+        high_school,
+      </if>
+      <if test="university != null" >
+        university,
+      </if>
+      <if test="majoy != null" >
+        majoy,
+      </if>
+      <if test="education != null" >
+        education,
+      </if>
+      <if test="techAge != null" >
+        tech_age,
+      </if>
+      <if test="techStyle != null" >
+        tech_style,
+      </if>
+      <if test="techWay != null" >
+        tech_way,
+      </if>
+      <if test="techLanguage != null" >
+        tech_language,
+      </if>
+      <if test="techSalary != null" >
+        tech_salary,
+      </if>
+      <if test="morning != null" >
+        morning,
+      </if>
+      <if test="noon != null" >
+        noon,
+      </if>
+      <if test="night != null" >
+        night,
+      </if>
+      <if test="subjects != null" >
+        subjects,
+      </if>
+      <if test="evaluation != null" >
+        evaluation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="validate != null" >
+        #{validate,jdbcType=VARCHAR},
+      </if>
+      <if test="validateDate != null" >
+        #{validateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realName != null" >
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="highSchool != null" >
+        #{highSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null" >
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="majoy != null" >
+        #{majoy,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="techAge != null" >
+        #{techAge,jdbcType=INTEGER},
+      </if>
+      <if test="techStyle != null" >
+        #{techStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="techWay != null" >
+        #{techWay,jdbcType=VARCHAR},
+      </if>
+      <if test="techLanguage != null" >
+        #{techLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="techSalary != null" >
+        #{techSalary,jdbcType=VARCHAR},
+      </if>
+      <if test="morning != null" >
+        #{morning,jdbcType=VARCHAR},
+      </if>
+      <if test="noon != null" >
+        #{noon,jdbcType=VARCHAR},
+      </if>
+      <if test="night != null" >
+        #{night,jdbcType=VARCHAR},
+      </if>
+      <if test="subjects != null" >
+        #{subjects,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="evaluation != null" >
+        #{evaluation,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.boao.user.model.TblUserTechWithBLOBs" >
+    update tbl_user_tech
+    <set >
+      <if test="validate != null" >
+        validate = #{validate,jdbcType=VARCHAR},
+      </if>
+      <if test="validateDate != null" >
+        validate_date = #{validateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realName != null" >
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        birthdate = #{birthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="origin != null" >
+        origin = #{origin,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="highSchool != null" >
+        high_school = #{highSchool,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null" >
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="majoy != null" >
+        majoy = #{majoy,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="techAge != null" >
+        tech_age = #{techAge,jdbcType=INTEGER},
+      </if>
+      <if test="techStyle != null" >
+        tech_style = #{techStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="techWay != null" >
+        tech_way = #{techWay,jdbcType=VARCHAR},
+      </if>
+      <if test="techLanguage != null" >
+        tech_language = #{techLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="techSalary != null" >
+        tech_salary = #{techSalary,jdbcType=VARCHAR},
+      </if>
+      <if test="morning != null" >
+        morning = #{morning,jdbcType=VARCHAR},
+      </if>
+      <if test="noon != null" >
+        noon = #{noon,jdbcType=VARCHAR},
+      </if>
+      <if test="night != null" >
+        night = #{night,jdbcType=VARCHAR},
+      </if>
+      <if test="subjects != null" >
+        subjects = #{subjects,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="evaluation != null" >
+        evaluation = #{evaluation,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.boao.user.model.TblUserTechWithBLOBs" >
+    update tbl_user_tech
+    set validate = #{validate,jdbcType=VARCHAR},
+      validate_date = #{validateDate,jdbcType=TIMESTAMP},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      birthdate = #{birthdate,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      high_school = #{highSchool,jdbcType=VARCHAR},
+      university = #{university,jdbcType=VARCHAR},
+      majoy = #{majoy,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      tech_age = #{techAge,jdbcType=INTEGER},
+      tech_style = #{techStyle,jdbcType=VARCHAR},
+      tech_way = #{techWay,jdbcType=VARCHAR},
+      tech_language = #{techLanguage,jdbcType=VARCHAR},
+      tech_salary = #{techSalary,jdbcType=VARCHAR},
+      morning = #{morning,jdbcType=VARCHAR},
+      noon = #{noon,jdbcType=VARCHAR},
+      night = #{night,jdbcType=VARCHAR},
+      subjects = #{subjects,jdbcType=LONGVARCHAR},
+      evaluation = #{evaluation,jdbcType=LONGVARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.boao.user.model.TblUserTech" >
+    update tbl_user_tech
+    set validate = #{validate,jdbcType=VARCHAR},
+      validate_date = #{validateDate,jdbcType=TIMESTAMP},
+      real_name = #{realName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      birthdate = #{birthdate,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=VARCHAR},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      high_school = #{highSchool,jdbcType=VARCHAR},
+      university = #{university,jdbcType=VARCHAR},
+      majoy = #{majoy,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      tech_age = #{techAge,jdbcType=INTEGER},
+      tech_style = #{techStyle,jdbcType=VARCHAR},
+      tech_way = #{techWay,jdbcType=VARCHAR},
+      tech_language = #{techLanguage,jdbcType=VARCHAR},
+      tech_salary = #{techSalary,jdbcType=VARCHAR},
+      morning = #{morning,jdbcType=VARCHAR},
+      noon = #{noon,jdbcType=VARCHAR},
+      night = #{night,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
