@@ -383,7 +383,7 @@
 					<!--贷款顾问guwen单个框架开始-->
 					<div class="guwen  an_line ">
 						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+							<a href="#" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
 						</div>
 						<div class="guwen_center">
 							<dl>
@@ -400,7 +400,7 @@
 					<!--贷款顾问guwen单个框架开始-->
 					<div class="guwen  an_line ">
 						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+							<a href="#"  title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
 						</div>
 						<div class="guwen_center">
 							<dl>
@@ -417,25 +417,7 @@
 					<!--贷款顾问guwen单个框架开始-->
 					<div class="guwen  an_line ">
 						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
-						</div>
-						<div class="guwen_center">
-							<dl>
-								<dt>
-									<a href="#" target="_blank">黄老师</a>&nbsp; <a href='#' target="_blank"><span class="zheng_ico1" title="博奥认证教员"></span></a> <a href='#' target="_blank"><span class="zheng_ico2" title="没效果不收费"></span></a>
-								</dt>
-								<dd>服务方式：教员上门</dd>
-								<dd>最高学历：本科在读（大三学生）</dd>
-								<dd>小学语文,小学数学,小学英语,寒假陪读</dd>
-							</dl>
-						</div>
-					</div>
-					<!--贷款顾问guwen单个框架结束-->
-
-					<!--贷款顾问guwen单个框架开始-->
-					<div class="guwen  an_line ">
-						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+							<a href="#"  title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
 						</div>
 						<div class="guwen_center">
 							<dl>
@@ -453,7 +435,7 @@
 					<!--贷款顾问guwen单个框架开始-->
 					<div class="guwen  an_line ">
 						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+							<a href="#"  title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
 						</div>
 						<div class="guwen_center">
 							<dl>
@@ -471,7 +453,7 @@
 					<!--贷款顾问guwen单个框架开始-->
 					<div class="guwen  an_line ">
 						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+							<a href="#"  title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
 						</div>
 						<div class="guwen_center">
 							<dl>
@@ -489,7 +471,25 @@
 					<!--贷款顾问guwen单个框架开始-->
 					<div class="guwen  an_line ">
 						<div class="guwen_logo">
-							<a href="#" alt="" title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+							<a href="#"  title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
+						</div>
+						<div class="guwen_center">
+							<dl>
+								<dt>
+									<a href="#" target="_blank">黄老师</a>&nbsp; <a href='#' target="_blank"><span class="zheng_ico1" title="博奥认证教员"></span></a> <a href='#' target="_blank"><span class="zheng_ico2" title="没效果不收费"></span></a>
+								</dt>
+								<dd>服务方式：教员上门</dd>
+								<dd>最高学历：本科在读（大三学生）</dd>
+								<dd>小学语文,小学数学,小学英语,寒假陪读</dd>
+							</dl>
+						</div>
+					</div>
+					<!--贷款顾问guwen单个框架结束-->
+
+					<!--贷款顾问guwen单个框架开始-->
+					<div class="guwen  an_line ">
+						<div class="guwen_logo">
+							<a href="#"  title="" target="_blank"><img src="images/static/huanglaoshi.jpg" /></a>
 						</div>
 						<div class="guwen_center">
 							<dl>
