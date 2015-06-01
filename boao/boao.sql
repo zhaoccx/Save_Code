@@ -2,7 +2,7 @@
 SQLyog 企业版 - MySQL GUI v8.14 
 MySQL - 5.5.20 : Database - db_boaohaoxue
 *********************************************************************
-*/
+*/
 
 /*!40101 SET NAMES utf8 */;
 

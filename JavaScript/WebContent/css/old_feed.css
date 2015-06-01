@@ -191,7 +191,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 }
 
 :root .ui_mask {
-	filter: none \0
+	filter: none \0
 }
 
 .ui_mask a {
@@ -416,7 +416,7 @@ a.gb_bt,a.gb_bt2,a.bt_tx1,a.bt_tx2,a.bt_tx4,a.bt_tx5,a.bt_tx6,a.bt_tx7 {
 	display: inline-block;
 	height: 18px;
 	padding-bottom: 0;
-	line-height: 19px\9
+	line-height: 19px\9
 }
 
 .gb_bt:hover,.gb_bt2:hover,.bt_tx1:hover,.bt_tx2:hover,.bt_tx4:hover,.bt_tx5:hover,.bt_tx6:hover,.bt_tx7:hover {
@@ -1197,7 +1197,7 @@ a.bt_tx7 {
 	height: 20px;
 	line-height: 20px;
 	min-width: 10px;
-	vertical-align: top\9
+	vertical-align: top\9
 }
 
 .mod_retweet li {
@@ -1337,7 +1337,7 @@ a.bt_tx7 {
 .mod-commnets-poster .comments-poster-addons .add-right {
 	float: right;
 	display: inline-block;
-	margin-top: -2px\9
+	margin-top: -2px\9
 }
 
 .mod-commnets-poster .comments-poster-addons .add-right label {
@@ -1561,7 +1561,7 @@ a.bt_tx7 {
 .mod-retweet .retweet-addons .add-right {
 	float: right;
 	display: inline-block;
-	margin-top: -1px\9
+	margin-top: -1px\9
 }
 
 .mod-retweet .retweet-addons .add-right label {
@@ -2516,7 +2516,7 @@ a.bt_tx7 {
 	background: rgba(0, 0, 0, .65);
 	color: #fff;
 	position: relative;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#90000000, endColorstr=#90000000) \9
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#90000000, endColorstr=#90000000) \9
 }
 
 .feed .f_item .f_ct_imgtxt .bigshow_view_detail {
@@ -2787,7 +2787,7 @@ a.bt_tx7 {
 	height: 30px;
 	overflow: hidden;
 	border-radius: 3px;
-	vertical-align: -9px\9
+	vertical-align: -9px\9
 }
 
 .feed .f_ct_friendsvisit .fri_ava img {
@@ -3149,11 +3149,11 @@ a.bt_tx7 {
 	text-align: center;
 	line-height: 18px;
 	*line-height: 21px;
-	line-height: 20px\0
+	line-height: 20px\0
 }
 
 :root .feed .mod_media .mod_pic .mod_pic_op a span {
-	line-height: 21px\0
+	line-height: 21px\0
 }
 
 .feed .mod_media .mod_pic .mod_pic_op a.cur span {
@@ -3839,7 +3839,7 @@ a.bt_tx7 {
 	height: 18px;
 	line-height: 18px;
 	line-height: 20px\9;
-	top: 6px\9
+	top: 6px\9
 }
 
 .feed .f_item .f_ct_appfeed .appfeed_appvote {
@@ -4124,7 +4124,7 @@ a.bt_tx7 {
 	left: 0;
 	bottom: 0;
 	background: rgba(0, 0, 0, .5);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#90000000, endColorstr=#90000000) \9
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#90000000, endColorstr=#90000000) \9
 }
 
 :root .feed .f_item .blog_template_mask {
@@ -5754,7 +5754,7 @@ to {
 .mod_commnets_poster .comments_poster_addons .add_right {
 	float: right;
 	display: inline-block;
-	margin-top: -2px\9
+	margin-top: -2px\9
 }
 
 .mod_commnets_poster .comments_poster_addons .add_right label {
@@ -5978,7 +5978,7 @@ to {
 .mod_retweet .retweet_addons .add_right {
 	float: right;
 	display: inline-block;
-	margin-top: -1px\9
+	margin-top: -1px\9
 }
 
 .mod_retweet .retweet_addons .add_right label {
