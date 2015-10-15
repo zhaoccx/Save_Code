@@ -92,6 +92,7 @@ public class PingYinUtil {
 				}
 			} else {
 				pybf.append(arr[i]);
+				System.out.println("is ok");
 			}
 		}
 		return pybf.toString();
