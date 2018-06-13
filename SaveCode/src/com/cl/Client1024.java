@@ -189,7 +189,7 @@ public class Client1024 {
 
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 
-		nvps.add(new BasicNameValuePair("regname", "天地一号"));
+		nvps.add(new BasicNameValuePair("regname", "我的账号"));
 		nvps.add(new BasicNameValuePair("regpwd", "13579zxc"));
 		nvps.add(new BasicNameValuePair("regpwdrepeat", "13579zxc"));
 		nvps.add(new BasicNameValuePair("regemail", "zcc102@163.com"));
