@@ -190,8 +190,8 @@ public class Client1024 {
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
 
 		nvps.add(new BasicNameValuePair("regname", "天地一号"));
-		nvps.add(new BasicNameValuePair("regpwd", "zhao5487102"));
-		nvps.add(new BasicNameValuePair("regpwdrepeat", "zhao5487102"));
+		nvps.add(new BasicNameValuePair("regpwd", "13579zxc"));
+		nvps.add(new BasicNameValuePair("regpwdrepeat", "13579zxc"));
 		nvps.add(new BasicNameValuePair("regemail", "zcc102@163.com"));
 		nvps.add(new BasicNameValuePair("invcode", invcode)); // 邀请码
 		nvps.add(new BasicNameValuePair("forward", "")); // 不变
