@@ -192,7 +192,7 @@ public class Client1024 {
 		nvps.add(new BasicNameValuePair("regname", "我的账号"));
 		nvps.add(new BasicNameValuePair("regpwd", "13579zxc"));
 		nvps.add(new BasicNameValuePair("regpwdrepeat", "13579zxc"));
-		nvps.add(new BasicNameValuePair("regemail", "zcc102@163.com"));
+		nvps.add(new BasicNameValuePair("regemail", "163@163.com"));
 		nvps.add(new BasicNameValuePair("invcode", invcode)); // 邀请码
 		nvps.add(new BasicNameValuePair("forward", "")); // 不变
 		nvps.add(new BasicNameValuePair("step", "2")); // 不变
