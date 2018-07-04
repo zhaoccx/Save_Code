@@ -17,22 +17,22 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class DatafortFilter implements Filter {
 	private String username;
-	private String dbType;
+	// private String dbType;
 
 	private static final String PARAM_NAME_PRINCIPAL_SESSION_NAME = "principalSessionName";
-	private static final String PARAM_NAME_PRINCIPAL_SESSION_CLASS = "principalSessionClass";
-	private static final String PARAM_NAME_PRINCIPAL_SESSION_METHOD = "principalSessionMethod";
+	// private static final String PARAM_NAME_PRINCIPAL_SESSION_CLASS = "principalSessionClass";
+	// private static final String PARAM_NAME_PRINCIPAL_SESSION_METHOD = "principalSessionMethod";
 
-	private static final String SPLIT = "$datafort$";
+	// private static final String SPLIT = "$datafort$";
 
 	@Override
 	public void init(FilterConfig config) throws ServletException {
 
 		String param = config.getInitParameter(PARAM_NAME_PRINCIPAL_SESSION_NAME);
+		System.out.println(param);
 
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
@@ -48,6 +48,7 @@ public class DatafortFilter implements Filter {
 			System.out.println(httpRequest.getRemoteUser() + "-------remoteUser---------" + remoteUser);
 			if (remoteUser != null) {
 				username = remoteUser;
+				System.out.println(username);
 			} else {
 
 				// 获取用户姓名
@@ -58,7 +59,7 @@ public class DatafortFilter implements Filter {
 				System.out.println("======333======");
 				// 当前请求的ip.需要获取当前登录的用户名
 				String clientIp = getIpAddr(httpRequest);
-
+				System.out.println(clientIp);
 			}
 
 		}
